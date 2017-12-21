@@ -278,6 +278,34 @@ MonoBehaviour:
     Variable: {fileID: 11400000, guid: f93a2bc7fba8b0342a9d11b42633de23, type: 2}
   CityRoutes:
   - {fileID: 11400000, guid: f13954947a9907d469f6e568ac6b6174, type: 2}
+--- !u!114 &1271552534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1271552532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02043d9cba6fbbe46a3ab329451cbd6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: b2d06fd8f457b4d4f80633fde6ddba08, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1271552533}
+        m_MethodName: AddTileToActiveRoute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1405478617
 Prefab:
   m_ObjectHideFlags: 0
@@ -616,6 +644,12 @@ Prefab:
       propertyPath: ClickCoordinates
       value: 
       objectReference: {fileID: 11400000, guid: 8f23dee6939904541ac9200233fac347,
+        type: 2}
+    - target: {fileID: 114413001294099184, guid: 6ee5a7eb1a666114787068ee943b1bd8,
+        type: 2}
+      propertyPath: ClickEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: b2d06fd8f457b4d4f80633fde6ddba08,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
