@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.Tilemaps;
 
 public class City : MonoBehaviour {
 
@@ -9,6 +10,9 @@ public class City : MonoBehaviour {
     public IntReference ActiveRoute;
 
     public List<CityRoute> CityRoutes = new List<CityRoute>();
+
+    public TileBase Roads;
+    public Tilemap CityTileMap;
 
     Grid m_Grid;
 
@@ -26,8 +30,11 @@ public class City : MonoBehaviour {
 
     public void AddTileToActiveRoute()
     {
-        //SHould check If I've tapped the roude tile
         Vector3Int newTile = m_Grid.WorldToCell(Click.Value);
-        CityRoutes[ActiveRoute].AddTile(newTile);
+
+        if (CityTileMap.GetTile(newTile) == Roads)
+        {
+            CityRoutes[ActiveRoute].AddTile(newTile);
+        }
     }
 }

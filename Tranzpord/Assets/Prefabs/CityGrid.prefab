@@ -119,6 +119,8 @@ MonoBehaviour:
     Variable: {fileID: 11400000, guid: f93a2bc7fba8b0342a9d11b42633de23, type: 2}
   CityRoutes:
   - {fileID: 11400000, guid: f13954947a9907d469f6e568ac6b6174, type: 2}
+  Roads: {fileID: 11400000, guid: c8f236979f12cc24f9aca39edd032081, type: 2}
+  CityTileMap: {fileID: 8195094281155855314}
 --- !u!156049354 &2569400267956006996
 Grid:
   m_ObjectHideFlags: 1
