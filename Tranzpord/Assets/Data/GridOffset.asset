@@ -8,11 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96eed4cd518a88345b6ce7566467ebc8, type: 3}
-  m_Name: Route1
+  m_Script: {fileID: 11500000, guid: 41328ff43065a0844b203e145f02b5a8, type: 3}
+  m_Name: GridOffset
   m_EditorClassIdentifier: 
-  Offset: {fileID: 11400000, guid: 269e3d78a8762e443a6936d429e02d71, type: 2}
-  RouteTiles:
-  - {x: 2, y: 2, z: 0}
-  - {x: 2, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  Description: 
+  Value: {x: 0.5, y: 0.5, z: 0}

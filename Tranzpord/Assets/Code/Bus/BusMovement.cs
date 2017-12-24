@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Movement : MonoBehaviour {
+public class BusMovement : MonoBehaviour {
 
     public FloatReference MoveSpeed;
     public FloatReference TargetAccuracy;
@@ -9,18 +9,22 @@ public class Movement : MonoBehaviour {
     CityRoute myRoute;
 
     int nextTileIndex;
-    Vector3 targetTile;
-    bool shouldMove = false;
 
 
+    /// <summary>
+    /// Methods
+    /// </summary>
+    /// <param name="route"></param>
     public void SetRoute(CityRoute route)
     {
         myRoute = route;
         nextTileIndex = 0;
-        transform.position = myRoute.RouteTiles[nextTileIndex];
+        transform.position = myRoute.GetTilePosition(nextTileIndex);
 
         SetNextTile();
     }
+
+
 
     void SetNextTile()
     {
@@ -32,12 +36,11 @@ public class Movement : MonoBehaviour {
         {
             nextTileIndex = 0; //should move backward
         }
-        
-        targetTile = myRoute.RouteTiles[nextTileIndex];
-        shouldMove = true;
-
-        StartCoroutine(Move(targetTile));
+       
+        StartCoroutine(Move(GetTargetPosition()));
     }
+
+
 
     IEnumerator Move(Vector3 target)
     {
@@ -58,12 +61,22 @@ public class Movement : MonoBehaviour {
         SetNextTile();
     }
 
+
+
+    Vector3 GetTargetPosition()
+    {
+        return myRoute.GetTilePosition(nextTileIndex);
+    }
+
+
     //Check for Station to Stop
     private bool IsBusStation()
     {
         return true;
     }
     
+
+
     //Rotate at corner road
 }
 

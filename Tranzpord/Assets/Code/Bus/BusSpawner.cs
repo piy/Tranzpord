@@ -8,6 +8,6 @@ public class BusSpawner : MonoBehaviour {
     public void SpawnBus()
     {
         var newBas = Instantiate(Bus);
-        newBas.GetComponent<Movement>().SetRoute(ActiveRoute);
+        newBas.GetComponent<BusMovement>().SetRoute(ActiveRoute);
     }
 }
