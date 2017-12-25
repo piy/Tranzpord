@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81918ab9c67af8d4e861b09f962c13b4, type: 3}
+  m_Name: HouseBrush
+  m_EditorClassIdentifier: 
+  m_Prefab: {fileID: 1522560222592484, guid: f789b83c5b5a6be419f0a61b9853589d, type: 2}
+  m_Z: 0
