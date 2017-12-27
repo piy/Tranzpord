@@ -7,6 +7,11 @@ public class FingerSetup : MonoBehaviour {
     public GameObject Cam;
     private float camScale;
 
+    public FloatReference DefaultZoom;
+    public FloatReference ZoomSensitivity;
+    public FloatReference MaxZoom;
+    public FloatReference MinZoom;
+
     private TapGestureRecognizer tapGesture;
     private ScaleGestureRecognizer scaleGesture;
     private LongPressGestureRecognizer longPressGesture;
@@ -42,7 +47,7 @@ public class FingerSetup : MonoBehaviour {
         Debug.Log(string.Format(text, format));
     }
 
-    #region Tap Gesture
+#region Tap Gesture
     private void TapGestureCallback(GestureRecognizer gesture)
     {
         if (gesture.State == GestureRecognizerState.Ended)
@@ -60,14 +65,15 @@ public class FingerSetup : MonoBehaviour {
     }
     #endregion
 
-    #region Scale Gesture
+#region Scale Gesture
     private void ScaleGestureCallback(GestureRecognizer gesture)
     {
         if (gesture.State == GestureRecognizerState.Executing)
         {
             DebugText("Scaled: {0}, Focus: {1}, {2}", scaleGesture.ScaleMultiplier, scaleGesture.FocusX, scaleGesture.FocusY);
-            //Earth.transform.localScale *= scaleGesture.ScaleMultiplier;
-            Cam.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize *= scaleGesture.ScaleMultiplier;
+            camScale = DefaultZoom*scaleGesture.ScaleMultiplier*ZoomSensitivity;
+            Cam.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = camScale.Clamp(MinZoom,MaxZoom);
+            //Cam.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize *= scaleGesture.ScaleMultiplier;
         }
     }
 
@@ -79,6 +85,7 @@ public class FingerSetup : MonoBehaviour {
     }
     #endregion
 
+#region Long Press
     private void LongPressGestureCallback(GestureRecognizer gesture)
     {
         if (gesture.State == GestureRecognizerState.Began)
@@ -105,8 +112,9 @@ public class FingerSetup : MonoBehaviour {
         longPressGesture.StateUpdated += LongPressGestureCallback;
         FingersScript.Instance.AddGesture(longPressGesture);
     }
+    #endregion
 
-
+#region Drag
     private void BeginDrag(float screenX, float screenY)
     {
         Vector3 pos = new Vector3(screenX, screenY, 0.0f);
@@ -128,6 +136,7 @@ public class FingerSetup : MonoBehaviour {
 
         DebugText("Long tap flick velocity: {0}", velocity);
     }
+#endregion
 
     private static bool? CaptureGestureHandler(GameObject obj)
     {

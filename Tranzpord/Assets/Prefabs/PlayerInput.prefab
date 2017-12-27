@@ -67,6 +67,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 0}
+  DefaultZoom:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: b0efb3e11b541174f9823baabe2cd025, type: 2}
+  ZoomSensitivity:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 78d21ecfc18f9454cab85b93fafcccb0, type: 2}
+  MaxZoom:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 22cf262c6985a5b49ba74cad7f71112e, type: 2}
+  MinZoom:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 06c562fb699680e4ea3c1da1eb214ec7, type: 2}
 --- !u!114 &114922130503205716
 MonoBehaviour:
   m_ObjectHideFlags: 1
