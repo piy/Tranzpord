@@ -5,12 +5,15 @@ using UnityEngine;
 public class FingerSetup : MonoBehaviour {
 
     public GameObject Cam;
-    private float camScale;
 
-    public FloatReference DefaultZoom;
-    public FloatReference ZoomSensitivity;
-    public FloatReference MaxZoom;
-    public FloatReference MinZoom;
+    [Header("Camera Zoom options")]
+    public float DefaultZoom;
+    public float ZoomSensitivity;
+    public float MaxZoom;
+    public float MinZoom;
+    float localScale;
+
+    [Header("Camera Movement options")]
 
     private TapGestureRecognizer tapGesture;
     private ScaleGestureRecognizer scaleGesture;
@@ -22,7 +25,8 @@ public class FingerSetup : MonoBehaviour {
         CreateScaleGesture();
         CreateLongPressGesture();
 
-        camScale = Cam.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize;
+        localScale = DefaultZoom;
+        Cam.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = DefaultZoom;
     }
 
     private void LateUpdate()
@@ -39,11 +43,13 @@ public class FingerSetup : MonoBehaviour {
         {
             touchIds += ":" + t.fingerId + ":";
         }
+
+        localScale = localScale.Clamp(MinZoom, MaxZoom);
+        Cam.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = localScale;
     }
 
     private void DebugText(string text, params object[] format)
     {
-        //bottomLabel.text = string.Format(text, format);
         Debug.Log(string.Format(text, format));
     }
 
@@ -70,10 +76,8 @@ public class FingerSetup : MonoBehaviour {
     {
         if (gesture.State == GestureRecognizerState.Executing)
         {
-            DebugText("Scaled: {0}, Focus: {1}, {2}", scaleGesture.ScaleMultiplier, scaleGesture.FocusX, scaleGesture.FocusY);
-            camScale = DefaultZoom*scaleGesture.ScaleMultiplier*ZoomSensitivity;
-            Cam.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = camScale.Clamp(MinZoom,MaxZoom);
-            //Cam.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize *= scaleGesture.ScaleMultiplier;
+            //DebugText("Scaled: {0}, Focus: {1}, {2}", scaleGesture.ScaleMultiplier, scaleGesture.FocusX, scaleGesture.FocusY);
+            localScale *= scaleGesture.ScaleMultiplier;
         }
     }
 
