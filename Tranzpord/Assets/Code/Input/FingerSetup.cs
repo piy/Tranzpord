@@ -1,163 +1,132 @@
 ﻿using Cinemachine;
 using DigitalRubyShared;
+using System.Collections;
 using UnityEngine;
 
 public class FingerSetup : MonoBehaviour {
 
+    public Camera MainCamera;
     public GameObject Cam;
 
     [Header("Camera Zoom options")]
     public float DefaultZoom;
-    public float ZoomSensitivity;
     public float MaxZoom;
     public float MinZoom;
-    float localScale;
 
-    [Header("Camera Movement options")]
-
-    private TapGestureRecognizer tapGesture;
     private ScaleGestureRecognizer scaleGesture;
-    private LongPressGestureRecognizer longPressGesture;
+    private PanGestureRecognizer panGesture;
+    private TapGestureRecognizer tapGesture;
+    private Vector3 cameraAnimationTargetPosition;
 
+    private IEnumerator AnimationCoRoutine()
+    {
+        Vector3 start = Cam.transform.position;
 
-    void Start () {
-        CreateTapGesture();
-        CreateScaleGesture();
-        CreateLongPressGesture();
+        // animate over 1/2 second
+        for (float accumTime = Time.deltaTime; accumTime <= 0.5f; accumTime += Time.deltaTime)
+        {
+            Cam.transform.position = Vector3.Lerp(start, cameraAnimationTargetPosition, accumTime / 0.5f);
+            yield return null;
+        }
+    }
 
-        localScale = DefaultZoom;
+    private void Start()
+    {
         Cam.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = DefaultZoom;
-    }
 
-    private void LateUpdate()
-    {
-        int touchCount = Input.touchCount;
-        if (FingersScript.Instance.TreatMousePointerAsFinger && Input.mousePresent)
+        scaleGesture = new ScaleGestureRecognizer
         {
-            touchCount += (Input.GetMouseButton(0) ? 1 : 0);
-            touchCount += (Input.GetMouseButton(1) ? 1 : 0);
-            touchCount += (Input.GetMouseButton(2) ? 1 : 0);
-        }
-        string touchIds = string.Empty;
-        foreach (Touch t in Input.touches)
-        {
-            touchIds += ":" + t.fingerId + ":";
-        }
+            ZoomSpeed = 1.0f // for a touch screen you'd probably not do this, but if you are using ctrl + mouse wheel then this helps zoom faster
+        };
+        scaleGesture.StateUpdated += Gesture_Updated;
+        FingersScript.Instance.AddGesture(scaleGesture);
 
-        localScale = localScale.Clamp(MinZoom, MaxZoom);
-        Cam.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = localScale;
-    }
+        panGesture = new PanGestureRecognizer();
+        panGesture.StateUpdated += PanGesture_Updated;
+        FingersScript.Instance.AddGesture(panGesture);
 
-    private void DebugText(string text, params object[] format)
-    {
-        Debug.Log(string.Format(text, format));
-    }
+        // the scale and pan can happen together
+        scaleGesture.AllowSimultaneousExecution(panGesture);
 
-#region Tap Gesture
-    private void TapGestureCallback(GestureRecognizer gesture)
-    {
-        if (gesture.State == GestureRecognizerState.Ended)
-        {
-            DebugText("Tapped at {0}, {1}", gesture.FocusX, gesture.FocusY);
-            //CreateAsteroid(gesture.FocusX, gesture.FocusY);
-        }
-    }
-
-    private void CreateTapGesture()
-    {
         tapGesture = new TapGestureRecognizer();
-        tapGesture.StateUpdated += TapGestureCallback;
+        tapGesture.StateUpdated += TapGesture_Updated;
         FingersScript.Instance.AddGesture(tapGesture);
     }
-    #endregion
 
-#region Scale Gesture
-    private void ScaleGestureCallback(GestureRecognizer gesture)
+    private void TapGesture_Updated(GestureRecognizer gesture)
     {
-        if (gesture.State == GestureRecognizerState.Executing)
+        if (tapGesture.State != GestureRecognizerState.Ended)
         {
-            //DebugText("Scaled: {0}, Focus: {1}, {2}", scaleGesture.ScaleMultiplier, scaleGesture.FocusX, scaleGesture.FocusY);
-            localScale *= scaleGesture.ScaleMultiplier;
+            return;
+        }
+
+        Ray ray = MainCamera.ScreenPointToRay(new Vector3(tapGesture.FocusX, tapGesture.FocusY, 0.0f));
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            // adjust camera x, y to look at the tapped / clicked sphere
+            cameraAnimationTargetPosition = new Vector3(hit.transform.position.x, hit.transform.position.y, Cam.transform.position.z);
+            StopAllCoroutines();
+            StartCoroutine(AnimationCoRoutine());
         }
     }
 
-    private void CreateScaleGesture()
+    private void PanGesture_Updated(GestureRecognizer gesture)
     {
-        scaleGesture = new ScaleGestureRecognizer();
-        scaleGesture.StateUpdated += ScaleGestureCallback;
-        FingersScript.Instance.AddGesture(scaleGesture);
-    }
-    #endregion
+        if (panGesture.State == GestureRecognizerState.Executing)
+        {
+            StopAllCoroutines();
 
-#region Long Press
-    private void LongPressGestureCallback(GestureRecognizer gesture)
-    {
-        if (gesture.State == GestureRecognizerState.Began)
-        {
-            DebugText("Long press began: {0}, {1}", gesture.FocusX, gesture.FocusY);
-            BeginDrag(gesture.FocusX, gesture.FocusY);
+            // convert pan coordinates to world coordinates
+            // get z position, orthographic this is 0, otherwise it's the z coordinate of all the spheres
+            float z = (MainCamera.orthographic ? 0.0f : 10.0f);
+            Vector3 pan = new Vector3(panGesture.DeltaX, panGesture.DeltaY, z);
+            Vector3 zero = MainCamera.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, z));
+            Vector3 panFromZero = MainCamera.ScreenToWorldPoint(pan);
+            Vector3 panInWorldSpace = zero - panFromZero;
+            Cam.transform.Translate(panInWorldSpace);
         }
-        else if (gesture.State == GestureRecognizerState.Executing)
+        else if (panGesture.State == GestureRecognizerState.Ended)
         {
-            DebugText("Long press moved: {0}, {1}", gesture.FocusX, gesture.FocusY);
-            DragTo(gesture.FocusX, gesture.FocusY);
-        }
-        else if (gesture.State == GestureRecognizerState.Ended)
-        {
-            DebugText("Long press end: {0}, {1}, delta: {2}, {3}", gesture.FocusX, gesture.FocusY, gesture.DeltaX, gesture.DeltaY);
-            EndDrag(longPressGesture.VelocityX, longPressGesture.VelocityY);
+            // apply velocity to camera to give it a little extra smooth end to the pan
+            Cam.GetComponent<Rigidbody>().velocity = new Vector3(panGesture.VelocityX * -0.002f, panGesture.VelocityY * -0.002f, 0.0f);
         }
     }
 
-    private void CreateLongPressGesture()
+    private void Gesture_Updated(GestureRecognizer gesture)
     {
-        longPressGesture = new LongPressGestureRecognizer();
-        longPressGesture.MaximumNumberOfTouchesToTrack = 1;
-        longPressGesture.StateUpdated += LongPressGestureCallback;
-        FingersScript.Instance.AddGesture(longPressGesture);
-    }
-    #endregion
-
-#region Drag
-    private void BeginDrag(float screenX, float screenY)
-    {
-        Vector3 pos = new Vector3(screenX, screenY, 0.0f);
-        //pos = Cam.transform.position;
-        //longPressGesture.Reset();
-    }
-
-    private void DragTo(float screenX, float screenY)
-    {
-        Vector3 pos = new Vector3(screenX, screenY, 0.0f);
-        Cam.transform.position = pos;
-    }
-
-    private void EndDrag(float velocityXScreen, float velocityYScreen)
-    {
-        Vector3 origin = Vector3.zero;
-        Vector3 end = Cam.transform.position;
-        Vector3 velocity = (end - origin);
-
-        DebugText("Long tap flick velocity: {0}", velocity);
-    }
-#endregion
-
-    private static bool? CaptureGestureHandler(GameObject obj)
-    {
-        // I've named objects PassThrough* if the gesture should pass through and NoPass* if the gesture should be gobbled up, everything else gets default behavior
-        if (obj.name.StartsWith("PassThrough"))
+        if (scaleGesture.State != GestureRecognizerState.Executing || scaleGesture.ScaleMultiplier == 1.0f)
         {
-            // allow the pass through for any element named "PassThrough*"
-            return false;
-        }
-        else if (obj.name.StartsWith("NoPass"))
-        {
-            // prevent the gesture from passing through, this is done on some of the buttons and the bottom text so that only
-            // the triple tap gesture can tap on it
-            return true;
+            return;
         }
 
-        // fall-back to default behavior for anything else
-        return null;
+        // invert the scale so that smaller scales actually zoom out and larger scales zoom in
+        float scale = 1.0f + (1.0f - scaleGesture.ScaleMultiplier);
+
+        if (MainCamera.orthographic)
+        {
+            //float newOrthographicSize = Mathf.Clamp(Cam.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize * scale, MinZoom, MaxZoom);
+            float newOrthographicSize = Cam.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize * scale;
+            newOrthographicSize = newOrthographicSize.Clamp(MinZoom, MaxZoom);
+            Cam.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = newOrthographicSize;
+        }
+        else
+        {
+            // get camera look vector
+            Vector3 forward = Cam.transform.forward;
+
+            // set the target to the camera x,y and 0 z position
+            Vector3 target = Cam.transform.position;
+            target.z = 0.0f;
+
+            // get distance between camera target and camera position
+            float distance = Vector3.Distance(target, Cam.transform.position);
+
+            // come up with a new distance based on the scale gesture
+            float newDistance = Mathf.Clamp(distance * scale, 1.0f, 100.0f);
+
+            // set the camera position at the new distance
+            Cam.transform.position = target - (forward * newDistance);
+        }
     }
 }
