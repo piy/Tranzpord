@@ -364,10 +364,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5fd4fb728eff04c967787679168af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainCamera: {fileID: 0}
   Cam: {fileID: 0}
-  DefaultZoom: 5
-  MaxZoom: 3
-  MinZoom: 12
+  DefaultFocusPoint: {x: 0, y: 0, z: -10}
+  DefaultZoom: 6
+  MaxZoom: 12
+  MinZoom: 4.5
 --- !u!114 &114707973839250468
 MonoBehaviour:
   m_ObjectHideFlags: 1

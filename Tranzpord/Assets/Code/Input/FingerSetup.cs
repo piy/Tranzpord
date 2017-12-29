@@ -7,6 +7,7 @@ public class FingerSetup : MonoBehaviour {
 
     public Camera MainCamera;
     public GameObject Cam;
+    public Vector3 DefaultFocusPoint;
 
     [Header("Camera Zoom options")]
     public float DefaultZoom;
@@ -32,6 +33,8 @@ public class FingerSetup : MonoBehaviour {
 
     private void Start()
     {
+        Cam.transform.position = DefaultFocusPoint;
+
         Cam.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = DefaultZoom;
 
         scaleGesture = new ScaleGestureRecognizer
