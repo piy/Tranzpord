@@ -51,5 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30ccb26a07c64c4a85970d90f822de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSceneIndex: {fileID: 11400000, guid: 610e235c503838a4d994e23d0b903c04, type: 2}
-  nextSceneIndex: {fileID: 0}
+  ActiveScene: {fileID: 11400000, guid: 610e235c503838a4d994e23d0b903c04, type: 2}
