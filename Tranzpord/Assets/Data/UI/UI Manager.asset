@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d719f1195aee6749b2c73e77951a16b, type: 3}
+  m_Name: UI Manager
+  m_EditorClassIdentifier: 
+  HUD: {fileID: 114450317953061546, guid: 07a03fe42bd223f418b241ea8f9dee94, type: 2}
+  ExitWindow: {fileID: 114073223417383208, guid: dbc4c9867c695e447b91b4a9d7dc64ba,
+    type: 2}
+  GlobalMap: {fileID: 114464323608492850, guid: 95f780a8cd2f7434095e6725b566f272,
+    type: 2}
+  RoutesListWindow: {fileID: 114757032044843324, guid: a71809213511e874bbd2f8aa87b0dba7,
+    type: 2}

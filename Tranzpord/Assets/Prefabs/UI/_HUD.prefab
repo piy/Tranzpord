@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 223451476741431694}
   - component: {fileID: 114234365637730234}
   - component: {fileID: 114779622703801012}
+  - component: {fileID: 114450317953061546}
   m_Layer: 5
   m_Name: _HUD
   m_TagString: Untagged
@@ -245,6 +246,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bus: {fileID: 1417263704369112, guid: 36acb46458ab3e94c9fe29aac8e32c39, type: 2}
   ActiveRoute: {fileID: 11400000, guid: f13954947a9907d469f6e568ac6b6174, type: 2}
+--- !u!114 &114450317953061546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1067460905357266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd723644996e08429ea87d826559fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
 --- !u!114 &114459230577944294
 MonoBehaviour:
   m_ObjectHideFlags: 1
