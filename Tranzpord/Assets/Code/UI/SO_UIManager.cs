@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Managers/UIManager")]
@@ -9,58 +10,111 @@ public class SO_UIManager : ScriptableObject {
     public GlobalMapWindow GlobalMap;
     public UIWindow RoutesListWindow;
 
-    Stack<UIWindow> windowsStack = new Stack<UIWindow>();
-
-    //Listen To Event BackBtn
+    Stack<UIWindow> uiStack = new Stack<UIWindow>();
 
     public void OpenWindow<T>() where T : UIWindow
     {
         var prefab = GetPrefab<T>();
         var Instance = Instantiate(prefab);
+                        //create ref to GameObject in class
+                        //this is needed just to check if the window is already created. Or just disabled Canvas. Maybe I could find neat workaround
+                        //Instance.gameObject.GetComponent<UIWindow<T>>().SetInstance(Instance);
 
-        //de-activate top windows
-        if (windowsStack.Count > 0)
+        //De-activate top windows
+        if (uiStack.Count > 0)
         {
-            windowsStack.Peek().gameObject.SetActive(false);   //Make disable canvas
+            if (Instance.DisableWindowsUnder)
+            {
+                foreach(var window in uiStack)
+                {
+                    window.GetComponent<Canvas>().enabled = false;
+                    //window.gameObject.SetActive(false);
+
+                    if (window.DisableWindowsUnder)
+                        break;
+                }
+            }
+
+            var TopCanvas = Instance.GetComponent<Canvas>();
+            var PreviousCanvas = uiStack.Peek().GetComponent<Canvas>();
+            TopCanvas.sortingOrder = PreviousCanvas.sortingOrder + 1;
         }
 
-        windowsStack.Push(Instance);
+        uiStack.Push(Instance);
+       
     }
 
-
-    private T GetPrefab<T>() where T: UIWindow
+    
+    private T GetPrefab<T>() where T : UIWindow
     {
-        if (typeof(T) == typeof(HUDWindow))
-            return HUD as T;
+        // Get prefab dynamically, based on public fields set from Unity
 
-        if (typeof(T) == typeof(ExitWindow))
-            return ExitWindow as T;
+        var fields = this.GetType().GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
 
-        throw new MissingReferenceException("Trying to get a prefab of: " + typeof(T));
+        foreach (var field in fields)
+        {
+            var prefab = field.GetValue(this) as T;
+            if (prefab != null)
+            {
+                return prefab;
+            }
+        }
+
+        throw new MissingReferenceException("Prefab not found for type: " + typeof(T));
+
+        //if (typeof(T) == typeof(HUDWindow))
+        //    return HUD as T;
+
+        //if (typeof(T) == typeof(ExitWindow))
+        //    return ExitWindow as T;
+
+        //throw new MissingReferenceException("Trying to get a prefab of: " + typeof(T));
     }
 
-    public void CloseWindow()
+    public void CloseWindow(UIWindow window)
     {
-        var instance = windowsStack.Pop();
-        Destroy(instance);
+        if (uiStack.Count == 0)
+        {
+            Debug.LogErrorFormat(window, "{0} cannot be closed because UI stack is empty", window.GetType());
+            return;
+        }
+
+        if (uiStack.Peek() != window)
+        {
+            Debug.LogErrorFormat(window, "{0} cannot be closed because it is not on the top of the Stack", window.GetType());
+            return;
+        }
+
+        CloseTopWindow();
+    }
+
+    public void CloseTopWindow()
+    {
+        var instance = uiStack.Pop();
+
+        if (instance.DestroyWhenClosed)
+            Destroy(instance);
+        else
+            instance.GetComponent<Canvas>().enabled = false;
+
 
         //re-activate top window
-        if (windowsStack.Count > 0)
+        //If a re-activated window is an overlay we need to activate the window under it
+        foreach (var win in uiStack)
         {
-            windowsStack.Peek().gameObject.SetActive(true); //canvas
+            win.GetComponent<Canvas>().enabled = true;
+
+            if (win.DisableWindowsUnder)
+                break;
         }
+
     }
 
-    //On event Back Btn presesd
-    void OnBackBtnPressed()
+    public void OnBackBtnPressed()
     {
-        if (windowsStack.Count > 0)
+        if (uiStack.Count > 0)
         {
-            windowsStack.Peek().gameObject.SetActive(false); // each window can have it's own exit state...
-        } else
-        {
-            //Show "Do you realy want to exit window
-            //Application.Quit();  Or quit if this is the last window
+            uiStack.Peek().OnBackBtnPressed(); // each window can have it's own exit state...
         }
     }
 }

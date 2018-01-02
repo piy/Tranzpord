@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 223383492936688316}
   - component: {fileID: 114479095399042674}
   - component: {fileID: 114808903604974210}
+  - component: {fileID: 114220680394659942}
   m_Layer: 5
   m_Name: RouteEditUI
   m_TagString: Untagged
@@ -93,7 +94,6 @@ GameObject:
   - component: {fileID: 222699105295088088}
   - component: {fileID: 114557587402349026}
   - component: {fileID: 114901208667765862}
-  - component: {fileID: 114221967855345914}
   - component: {fileID: 114769562736356706}
   m_Layer: 5
   m_Name: Exit
@@ -119,18 +119,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114221967855345914
+--- !u!114 &114220680394659942
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1642860204679712}
+  m_GameObject: {fileID: 1537257698946294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa79dc7e29e0633479398776e35f165b, type: 3}
+  m_Script: {fileID: 11500000, guid: e80d998bd13e13c40a8d7254faf6213d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Window: {fileID: 1537257698946294}
+  DestroyWhenClosed: 1
+  DisableWindowsUnder: 1
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
 --- !u!114 &114479095399042674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -376,8 +378,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114221967855345914}
-        m_MethodName: CloseWindow
+      - m_Target: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
+        m_MethodName: CloseTopWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

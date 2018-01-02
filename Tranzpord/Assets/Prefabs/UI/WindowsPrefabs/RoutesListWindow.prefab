@@ -159,7 +159,6 @@ GameObject:
   - component: {fileID: 222753857772521850}
   - component: {fileID: 114177017068212866}
   - component: {fileID: 114094942491822608}
-  - component: {fileID: 114811976392401228}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -195,7 +194,6 @@ GameObject:
   - component: {fileID: 222247786660853050}
   - component: {fileID: 114815784955423140}
   - component: {fileID: 114808878470701444}
-  - component: {fileID: 114125837822324456}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -442,23 +440,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114811976392401228}
-        m_MethodName: CloseWindow
+      - m_Target: {fileID: 114757032044843324}
+        m_MethodName: OpenEditRouteUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1480090023990498}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -532,18 +519,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Build
---- !u!114 &114125837822324456
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1499685273586558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa79dc7e29e0633479398776e35f165b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Window: {fileID: 1722731308687776}
 --- !u!114 &114177017068212866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -999,6 +974,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad37ef4094b0f3646bc895c832501c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestroyWhenClosed: 0
+  DisableWindowsUnder: 0
   UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
 --- !u!114 &114790275239347278
 MonoBehaviour:
@@ -1066,8 +1043,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114125837822324456}
-        m_MethodName: CloseWindow
+      - m_Target: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
+        m_MethodName: CloseTopWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1079,18 +1056,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114811976392401228
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1480090023990498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa79dc7e29e0633479398776e35f165b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Window: {fileID: 1722731308687776}
 --- !u!114 &114815784955423140
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,7 +1,17 @@
-﻿public class HUDWindow : UIWindow<HUDWindow>
+﻿public class HUDWindow : SimpleWindow<HUDWindow>
 {
     public override void OnBackBtnPressed()
     {
-        //Open Exit Window
+        base.UIManager.OpenWindow<ExitWindow>();
+    }
+
+    public void OpenGlobalMap()
+    {
+        UIManager.OpenWindow<GlobalMapWindow>();
+    }
+
+    public void OpenRouteList()
+    {
+        UIManager.OpenWindow<RoutesListWindow>();
     }
 }

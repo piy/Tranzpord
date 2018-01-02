@@ -1,7 +1,7 @@
 ﻿public class RoutesListWindow : UIWindow<RoutesListWindow>
 {
-    public override void OnBackBtnPressed()
+    public void OpenEditRouteUI()
     {
-        base.UIManager.CloseWindow();
+        UIManager.OpenWindow<RouteEditWindow>();
     }
 }

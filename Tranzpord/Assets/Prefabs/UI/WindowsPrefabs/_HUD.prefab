@@ -57,7 +57,6 @@ GameObject:
   - component: {fileID: 224947081024718186}
   - component: {fileID: 222882616100410528}
   - component: {fileID: 114523688578395018}
-  - component: {fileID: 114818704656900278}
   m_Layer: 5
   m_Name: RoutesBtn
   m_TagString: Untagged
@@ -94,7 +93,6 @@ GameObject:
   - component: {fileID: 224439286430993184}
   - component: {fileID: 222488064627968260}
   - component: {fileID: 114781527400999736}
-  - component: {fileID: 114071866825236062}
   m_Layer: 5
   m_Name: GlobalMapBtn
   m_TagString: Untagged
@@ -173,18 +171,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114071866825236062
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1803539448112996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa79dc7e29e0633479398776e35f165b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Window: {fileID: 1194596782026942, guid: 95f780a8cd2f7434095e6725b566f272, type: 2}
 --- !u!114 &114136088759030026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -257,6 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd723644996e08429ea87d826559fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestroyWhenClosed: 0
+  DisableWindowsUnder: 1
   UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
 --- !u!114 &114459230577944294
 MonoBehaviour:
@@ -330,8 +318,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114818704656900278}
-        m_MethodName: OpenWindow
+      - m_Target: {fileID: 114450317953061546}
+        m_MethodName: OpenRouteList
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -565,8 +553,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114071866825236062}
-        m_MethodName: OpenWindow
+      - m_Target: {fileID: 114450317953061546}
+        m_MethodName: OpenGlobalMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -578,18 +566,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114818704656900278
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1179543124728272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa79dc7e29e0633479398776e35f165b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Window: {fileID: 1722731308687776, guid: a71809213511e874bbd2f8aa87b0dba7, type: 2}
 --- !u!114 &114849012616280208
 MonoBehaviour:
   m_ObjectHideFlags: 1
