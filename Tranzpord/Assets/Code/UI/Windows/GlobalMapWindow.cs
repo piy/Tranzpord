@@ -1,4 +1,4 @@
-﻿public class GlobalMapWindow : UIWindow<GlobalMapWindow>
+﻿public class GlobalMapWindow : SimpleWindow<GlobalMapWindow>
 {
 
 }

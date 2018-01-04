@@ -1,4 +1,4 @@
-﻿public class RouteEditWindow : UIWindow<RouteEditWindow>
+﻿public class RouteEditWindow : SimpleWindow<RouteEditWindow>
 {
 
 }

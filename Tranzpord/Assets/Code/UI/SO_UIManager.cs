@@ -5,12 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Managers/UIManager")]
 public class SO_UIManager : ScriptableObject {
 
+    [Header("UI Windows prefabs")]
     public HUDWindow HUD;
     public ExitWindow ExitWindow;
     public GlobalMapWindow GlobalMap;
     public UIWindow RoutesListWindow;
+    public RouteEditWindow RouteEdit;
 
     Stack<UIWindow> uiStack = new Stack<UIWindow>();
+    Dictionary<UIWindow, GameObject> instantiatedUI = new Dictionary<UIWindow, GameObject>();
 
     public void OpenWindow<T>() where T : UIWindow
     {
@@ -28,7 +31,6 @@ public class SO_UIManager : ScriptableObject {
                 foreach(var window in uiStack)
                 {
                     window.GetComponent<Canvas>().enabled = false;
-                    //window.gameObject.SetActive(false);
 
                     if (window.DisableWindowsUnder)
                         break;

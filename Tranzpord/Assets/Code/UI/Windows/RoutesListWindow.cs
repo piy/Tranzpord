@@ -1,4 +1,4 @@
-﻿public class RoutesListWindow : UIWindow<RoutesListWindow>
+﻿public class RoutesListWindow : SimpleWindow<RoutesListWindow>
 {
     public void OpenEditRouteUI()
     {

@@ -2,16 +2,27 @@
 
 public abstract class UIWindow<T> : UIWindow where T : UIWindow<T>
 {
-    private GameObject instance;
+    public T Instance { get; private set; }
     public SO_UIManager UIManager;
+
+    protected virtual void Awake()
+    {
+        //Debug.Log(name + " .My instance is set to be: " + Instance);
+        Instance = (T)this;
+    }
+
+    protected virtual void OnDestroy()
+    {
+        Instance = null;
+    }
 
     protected void Open()
     {
-
-        if (instance == null)
-            UIManager.OpenWindow<T>();
+        //Debug.Log("Open: " + name + ". And my instance is: " + Instance);
+        if (Instance != null)
+            Instance.GetComponent<Canvas>().enabled = true;   
         else
-            instance.GetComponent<Canvas>().enabled = true;   
+            UIManager.OpenWindow<T>();
     }
 
     protected void Close()
@@ -26,15 +37,11 @@ public abstract class UIWindow<T> : UIWindow where T : UIWindow<T>
         Close();
     }
 
-    public void SetInstance(GameObject go)
-    {
-        instance = go;
-    }
 }
 
 
 
-public abstract class UIWindow : MonoBehaviour{
+public abstract class UIWindow : MonoBehaviour {
 
     [Tooltip("Destroy GameObject, or just disable Canvas")]
     public bool DestroyWhenClosed = false;
@@ -61,18 +68,17 @@ public abstract class SimpleWindow<T> : UIWindow<T> where T : SimpleWindow<T>
 }
 
 
+//public class ComplexWindow : UIWindow<ComplexWindow>
+//{
+//    public void Show(string foo)
+//    {
+//        Open();
+//        //foo code here
+//    }
 
-public class ComplexWindow : UIWindow<ComplexWindow>
-{
-    public void Show(string foo)
-    {
-        Open();
-        //foo code here
-    }
-
-    public void Hide(int result)
-    {
-        //result code goes here
-        Close();
-    }
-}
+//    public void Hide(int result)
+//    {
+//        //result code goes here
+//        Close();
+//    }
+//}

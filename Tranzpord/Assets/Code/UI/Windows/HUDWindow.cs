@@ -7,7 +7,8 @@
 
     public void OpenGlobalMap()
     {
-        UIManager.OpenWindow<GlobalMapWindow>();
+        //UIManager.OpenWindow<GlobalMapWindow>();
+        UIManager.GlobalMap.Show();
     }
 
     public void OpenRouteList()

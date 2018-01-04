@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ExitWindow : UIWindow<ExitWindow> {
+public class ExitWindow : SimpleWindow<ExitWindow> {
 
     public override void OnBackBtnPressed()
     {
