@@ -10,7 +10,12 @@ public class ExitWindow : SimpleWindow<ExitWindow> {
     public void ExitGame()
     {
         //Save
-        UIManager.CloseWindow(this);
-        Application.Quit();
+        UIManager.ExitWindow.Hide();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+         Application.Quit();
+#endif
     }
 }

@@ -2,6 +2,6 @@
 {
     public void OpenEditRouteUI()
     {
-        UIManager.OpenWindow<RouteEditWindow>();
+        UIManager.RouteEdit.Show();
     }
 }

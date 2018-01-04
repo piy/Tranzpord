@@ -2,7 +2,7 @@
 {
     public override void OnBackBtnPressed()
     {
-        base.UIManager.OpenWindow<ExitWindow>();
+        UIManager.ExitWindow.Show();
     }
 
     public void OpenGlobalMap()
@@ -13,6 +13,6 @@
 
     public void OpenRouteList()
     {
-        UIManager.OpenWindow<RoutesListWindow>();
+        UIManager.RoutesListWindow.Show();
     }
 }

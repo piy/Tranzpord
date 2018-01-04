@@ -6,6 +6,11 @@ public class HUDInitializer : MonoBehaviour {
 
     private void Awake()
     {
+        UIManager.ClearUp();
+    }
+
+    private void Start()
+    {
         //Check if it is already available
         UIManager.HUD.Show();
     }

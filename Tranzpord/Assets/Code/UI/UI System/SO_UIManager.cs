@@ -9,44 +9,41 @@ public class SO_UIManager : ScriptableObject {
     public HUDWindow HUD;
     public ExitWindow ExitWindow;
     public GlobalMapWindow GlobalMap;
-    public UIWindow RoutesListWindow;
+    public RoutesListWindow RoutesListWindow;
     public RouteEditWindow RouteEdit;
 
-    Stack<UIWindow> uiStack = new Stack<UIWindow>();
-    Dictionary<UIWindow, GameObject> instantiatedUI = new Dictionary<UIWindow, GameObject>();
+    Stack<UIWindow> uiStack = new Stack<UIWindow>();    
 
-    public void OpenWindow<T>() where T : UIWindow
+    public void ClearUp()
     {
-        var prefab = GetPrefab<T>();
-        var Instance = Instantiate(prefab);
-                        //create ref to GameObject in class
-                        //this is needed just to check if the window is already created. Or just disabled Canvas. Maybe I could find neat workaround
-                        //Instance.gameObject.GetComponent<UIWindow<T>>().SetInstance(Instance);
+        uiStack.Clear();
+    }
 
-        //De-activate top windows
+    public void OpenWindow(UIWindow win) 
+    {
+       //De-activate top windows
         if (uiStack.Count > 0)
         {
-            if (Instance.DisableWindowsUnder)
+            if (win.DisableWindowsUnder)
             {
-                foreach(var window in uiStack)
+                foreach (var window in uiStack)
                 {
-                    window.GetComponent<Canvas>().enabled = false;
+                    DisableCanvas(window);
 
                     if (window.DisableWindowsUnder)
                         break;
                 }
             }
 
-            var TopCanvas = Instance.GetComponent<Canvas>();
+            var TopCanvas = win.GetComponent<Canvas>();
             var PreviousCanvas = uiStack.Peek().GetComponent<Canvas>();
             TopCanvas.sortingOrder = PreviousCanvas.sortingOrder + 1;
         }
 
-        uiStack.Push(Instance);
-       
+        uiStack.Push(win);
+
     }
 
-    
     private T GetPrefab<T>() where T : UIWindow
     {
         // Get prefab dynamically, based on public fields set from Unity
@@ -73,6 +70,25 @@ public class SO_UIManager : ScriptableObject {
         //throw new MissingReferenceException("Trying to get a prefab of: " + typeof(T));
     }
 
+    public void CreateWindow<T>() where T : UIWindow
+    {
+        var prefab = GetPrefab<T>();
+        Instantiate(prefab);
+    }
+
+    private void DisableCanvas(UIWindow win)
+    {
+        if (win.GetComponent<Canvas>() != null)
+        {
+            win.GetComponent<Canvas>().enabled = false;
+        }
+        else
+        {
+            Debug.LogError(win + " Does not have a Canvas on it to disable");
+        }
+        
+    }
+
     public void CloseWindow(UIWindow window)
     {
         if (uiStack.Count == 0)
@@ -95,10 +111,11 @@ public class SO_UIManager : ScriptableObject {
         var instance = uiStack.Pop();
 
         if (instance.DestroyWhenClosed)
-            Destroy(instance);
+        {
+            Destroy(instance.gameObject);
+        }
         else
-            instance.GetComponent<Canvas>().enabled = false;
-
+            DisableCanvas(instance);
 
         //re-activate top window
         //If a re-activated window is an overlay we need to activate the window under it

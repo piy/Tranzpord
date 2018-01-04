@@ -2,7 +2,7 @@
 
 public abstract class UIWindow<T> : UIWindow where T : UIWindow<T>
 {
-    public T Instance { get; private set; }
+    public static T Instance { get; private set; }
     public SO_UIManager UIManager;
 
     protected virtual void Awake()
@@ -19,17 +19,24 @@ public abstract class UIWindow<T> : UIWindow where T : UIWindow<T>
     protected void Open()
     {
         //Debug.Log("Open: " + name + ". And my instance is: " + Instance);
-        if (Instance != null)
-            Instance.GetComponent<Canvas>().enabled = true;   
+
+        if (Instance == null)
+            UIManager.CreateWindow<T>();
         else
-            UIManager.OpenWindow<T>();
+            Instance.GetComponent<Canvas>().enabled = true;
+
+        UIManager.OpenWindow(Instance);
     }
 
     protected void Close()
     {
-        //If window is null -> catch error
+        if (Instance == null)
+        {
+            Debug.LogErrorFormat("Trying to close menu {0} but Instance is null", typeof(T));
+            return;
+        }
 
-        UIManager.CloseWindow(this);
+        UIManager.CloseWindow(Instance);
     }
 
     public override void OnBackBtnPressed()
@@ -50,21 +57,6 @@ public abstract class UIWindow : MonoBehaviour {
     public bool DisableWindowsUnder = true;
 
     public abstract void OnBackBtnPressed();
-}
-
-
-
-public abstract class SimpleWindow<T> : UIWindow<T> where T : SimpleWindow<T>
-{
-    public void Show()
-    {
-        Open();
-    }
-
-    public void Hide()
-    {
-        Close();
-    }
 }
 
 
