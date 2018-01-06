@@ -4,6 +4,8 @@ using UnityEngine.Tilemaps;
 
 public class City : MonoBehaviour {
 
+    public CitySO ActiveCity;
+
     public Vector3Variable Click;
 
     public IntReference ActiveRoute;

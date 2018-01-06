@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96eed4cd518a88345b6ce7566467ebc8, type: 3}
+  m_Name: Route1
+  m_EditorClassIdentifier: 
+  isUnlocked: 1
+  RouteName: Route 1
+  Offset: {fileID: 11400000, guid: 269e3d78a8762e443a6936d429e02d71, type: 2}
+  RouteTiles:
+  - {x: 0, y: -4, z: 0}
+  - {x: -1, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
+  - {x: 2, y: 0, z: 0}
+  - {x: -2, y: -5, z: 0}
+  - {x: 1, y: -4, z: 0}
+  - {x: 2, y: -4, z: 0}
+  - {x: 3, y: -4, z: 0}
+  - {x: -2, y: -4, z: 0}
+  - {x: -2, y: -5, z: 0}
+  - {x: -2, y: -6, z: 0}
+  - {x: -1, y: -4, z: 0}
+  - {x: -1, y: -4, z: 0}

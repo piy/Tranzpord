@@ -977,6 +977,7 @@ MonoBehaviour:
   DestroyWhenClosed: 0
   DisableWindowsUnder: 0
   UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
+  game: {fileID: 11400000, guid: 8b517e66f763a714385449f6cd8db974, type: 2}
 --- !u!114 &114790275239347278
 MonoBehaviour:
   m_ObjectHideFlags: 1

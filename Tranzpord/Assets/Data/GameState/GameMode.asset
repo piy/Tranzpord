@@ -8,6 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fe3e83e8898d724cbe0c34fe976d995, type: 3}
-  m_Name: Zazhopinsk1
+  m_Script: {fileID: 11500000, guid: 8aa722c42631a314da2cad18dd2f2095, type: 3}
+  m_Name: GameMode
   m_EditorClassIdentifier: 
+  CurrentGameMode: 0
