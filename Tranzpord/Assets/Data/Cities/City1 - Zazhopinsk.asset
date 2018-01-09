@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe3e83e8898d724cbe0c34fe976d995, type: 3}
   m_Name: City1 - Zazhopinsk
   m_EditorClassIdentifier: 
-  myRoutes:
+  Routes:
   - {fileID: 11400000, guid: f13954947a9907d469f6e568ac6b6174, type: 2}
   - {fileID: 11400000, guid: 5a84428530e71974bb21a3bbb0fb4a68, type: 2}
   - {fileID: 11400000, guid: a7887eb816a1b834293f9301364bdd88, type: 2}

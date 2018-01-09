@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eedcb6da875cb6d41b16bbbccd777b8f, type: 3}
   m_Name: GameState
   m_EditorClassIdentifier: 
-  CurentGameMode: {fileID: 11400000, guid: 03ecaa1908026394499a953c5ac40e1a, type: 2}
+  ActiveGameMode: {fileID: 11400000, guid: 03ecaa1908026394499a953c5ac40e1a, type: 2}
   ActiveCity: {fileID: 11400000, guid: 4e7784d50b8270a43b87127c5727eb43, type: 2}
   ActiveRoute: {fileID: 0}

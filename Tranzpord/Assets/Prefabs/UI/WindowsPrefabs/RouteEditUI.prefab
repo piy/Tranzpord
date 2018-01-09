@@ -133,6 +133,7 @@ MonoBehaviour:
   DestroyWhenClosed: 1
   DisableWindowsUnder: 1
   UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
+  game: {fileID: 11400000, guid: 8b517e66f763a714385449f6cd8db974, type: 2}
 --- !u!114 &114479095399042674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -378,8 +379,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
-        m_MethodName: CloseTopWindow
+      - m_Target: {fileID: 114220680394659942}
+        m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
