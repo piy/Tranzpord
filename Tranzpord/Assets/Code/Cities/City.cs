@@ -30,7 +30,13 @@ public class City : MonoBehaviour {
 
         if (CityTileMap.GetTile(newTile) == Roads)
         {
+            ColorTile(newTile);
             game.ActiveRoute.AddTile(newTile);
         }
+    }
+
+    void ColorTile(Vector3Int TilePos)
+    {
+        CityTileMap.SetColor(TilePos, Color.red);
     }
 }
