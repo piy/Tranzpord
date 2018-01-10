@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class RoutesListWindow : UIWindow<RoutesListWindow>
 {
@@ -9,12 +10,18 @@ public class RoutesListWindow : UIWindow<RoutesListWindow>
 
     Transform ItemsHolder { get { return Instance.gameObject.transform.GetChild(0).transform.Find("ItemsHolder");} }
 
+    List<CityRoute> routeItems = new List<CityRoute>();
+
     public void Show()
     {
         Open();
-
         //Check if items already created -> just show them
-        CreateRouteItems();
+        if (game.ActiveCity.Routes.Count != Instance.routeItems.Count)
+        {
+            routeItems.Clear();
+            CreateRouteItems();
+        }
+        
     }
 
     public void Hide()
@@ -31,14 +38,18 @@ public class RoutesListWindow : UIWindow<RoutesListWindow>
     {
         foreach (var route in game.ActiveCity.Routes)
         {
-            FillRouteInfo(route);
+            CreateRouteItem(route);
         }
     }
 
-    private void FillRouteInfo(CityRoute route)
+    private void CreateRouteItem(CityRoute route)
     {
         GameObject item = Instantiate(RouteItem);
         item.transform.SetParent(ItemsHolder,false);
         item.gameObject.SetActive(true);
+
+        item.GetComponent<RouteItemView>().SetupView(route.isUnlocked, route.name, route.RouteTiles.Count);
+
+        Instance.routeItems.Add(route);
     }
 }

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96eed4cd518a88345b6ce7566467ebc8, type: 3}
   m_Name: Route2
   m_EditorClassIdentifier: 
-  isUnlocked: 0
+  isUnlocked: 1
   RouteName: Route 2
   Offset: {fileID: 11400000, guid: 269e3d78a8762e443a6936d429e02d71, type: 2}
   RouteTiles: []
