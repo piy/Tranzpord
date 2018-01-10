@@ -5,14 +5,14 @@ public class RoutesListWindow : UIWindow<RoutesListWindow>
     public GameStateSO game;
 
     [Header("Route Creation Setup")]
-    [SerializeField]
-    GameObject   RouteHolder;
-    [SerializeField]
-    GameObject RouteItem;
+    public GameObject RouteItem;
+
+    Transform ItemsHolder { get { return Instance.gameObject.transform.GetChild(0).transform.Find("ItemsHolder");} }
 
     public void Show()
     {
         Open();
+
         //Check if items already created -> just show them
         CreateRouteItems();
     }
@@ -37,13 +37,8 @@ public class RoutesListWindow : UIWindow<RoutesListWindow>
 
     private void FillRouteInfo(CityRoute route)
     {
-        //var item = Instantiate(RouteItem, RouteHolder.transform);
-
-        //if (!item.activeInHierarchy)
-        //{
-        //    item.SetActive(true);
-        //}
-
-        Debug.Log("Route UI creation should be here");
+        GameObject item = Instantiate(RouteItem);
+        item.transform.SetParent(ItemsHolder,false);
+        item.gameObject.SetActive(true);
     }
 }

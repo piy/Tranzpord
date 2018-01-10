@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: SoftCurrency
   m_EditorClassIdentifier: 
   Description: Soft Currency in the Storage
-  Value: 100
+  Value: 102
