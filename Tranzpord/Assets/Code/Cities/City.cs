@@ -11,8 +11,9 @@ public class City : MonoBehaviour {
     public TileBase Roads;
     public Tilemap CityTileMap;
     public Tilemap CityRoutes;
+    public Grid m_Grid;
 
-    Grid m_Grid;
+
 
     private void Start()
     {
@@ -22,32 +23,15 @@ public class City : MonoBehaviour {
         HideRoutes();
     }
 
-    public void AddTileToActiveRoute()
-    {
-        if (game.ActiveGameMode.CurrentGameMode != GameMode.EditRoute)
-        {
-            return;
-        }
 
-        Vector3Int newTile = m_Grid.WorldToCell(Click.Value);
-
-        if (CityTileMap.GetTile(newTile) == Roads)
-        {
-            ColorTile(newTile);
-            game.ActiveRoute.AddTile(newTile);
-        }
-    }
-
-    void ColorTile(Vector3Int TilePos)
-    {
-        CityTileMap.SetColor(TilePos, Color.red);
-    }
 
     public void ShowRoutes()
     {
         Debug.Log("display route layer");
         CityRoutes.GetComponent<TilemapRenderer>().enabled = true;
     }
+
+
 
     public void HideRoutes()
     {

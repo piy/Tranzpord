@@ -11,6 +11,7 @@ public class GameStateSO : ScriptableObject
     private void OnEnable()
     {
         SetGameModeTo(GameMode.PlayMode);
+        ActiveRoute = null;
     }
 
     public void SetGameModeTo(GameMode mode)

@@ -409,6 +409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06834dbad9e622458ce2f42f1d46ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Game: {fileID: 11400000, guid: 8b517e66f763a714385449f6cd8db974, type: 2}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   RouteName: {fileID: 114650626518654326}
   RouteLenght: {fileID: 114076453848309892}
   EditBtn: {fileID: 114999534363252214}
@@ -671,7 +673,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114757032044843324}
+      - m_Target: {fileID: 114692368986487890}
         m_MethodName: OpenEditRouteUI
         m_Mode: 1
         m_Arguments:

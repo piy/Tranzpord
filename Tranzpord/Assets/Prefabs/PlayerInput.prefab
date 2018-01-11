@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224621423752807742}
   - component: {fileID: 222864304840999310}
   - component: {fileID: 114755448434947074}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Touch9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224107565541920204}
   - component: {fileID: 222705791977416628}
   - component: {fileID: 114000519627875740}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Touch5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 223736580951935546}
   - component: {fileID: 114855693343851922}
   - component: {fileID: 114707973839250468}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TouchesCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 224233016480634896}
   - component: {fileID: 222790059584095938}
   - component: {fileID: 114985114150019844}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Touch10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224090277127031292}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Touches
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 224713447689786296}
   - component: {fileID: 222934932944848882}
   - component: {fileID: 114947356464623844}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Touch1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 224665420082673316}
   - component: {fileID: 222228117886522742}
   - component: {fileID: 114229961049474660}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Touch4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 224554924480665758}
   - component: {fileID: 222477673481403304}
   - component: {fileID: 114291370757608068}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Touch6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 224733729378923106}
   - component: {fileID: 222261747168146638}
   - component: {fileID: 114773763254819226}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Touch3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 224590345826600070}
   - component: {fileID: 222764820683014102}
   - component: {fileID: 114021940644132836}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Touch8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,9 @@ GameObject:
   - component: {fileID: 114922130503205716}
   - component: {fileID: 114435485543770900}
   - component: {fileID: 114443026710549974}
-  m_Layer: 0
+  - component: {fileID: 114179653972645212}
+  - component: {fileID: 114804210208151182}
+  m_Layer: 8
   m_Name: PlayerInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +211,7 @@ GameObject:
   - component: {fileID: 224951113460103110}
   - component: {fileID: 222258946701982614}
   - component: {fileID: 114928392909915316}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Touch2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +228,7 @@ GameObject:
   - component: {fileID: 224641874133368436}
   - component: {fileID: 222391119341307420}
   - component: {fileID: 114942635674609160}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Touch7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,6 +289,34 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114179653972645212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848883374393084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02043d9cba6fbbe46a3ab329451cbd6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: b2d06fd8f457b4d4f80633fde6ddba08, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114804210208151182}
+        m_MethodName: AddTileToActiveRoute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114229961049474660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -453,6 +483,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114804210208151182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848883374393084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0945bd3a7ef31df459113a04f253b3c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Game: {fileID: 11400000, guid: 8b517e66f763a714385449f6cd8db974, type: 2}
+  Click: {fileID: 11400000, guid: 8f23dee6939904541ac9200233fac347, type: 2}
+  Routes: {fileID: 11400000, guid: ae1f24e2d5eb2a84d93b2140fe2a82c8, type: 2}
 --- !u!114 &114855693343851922
 MonoBehaviour:
   m_ObjectHideFlags: 1

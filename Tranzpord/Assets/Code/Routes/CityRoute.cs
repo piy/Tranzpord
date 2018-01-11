@@ -27,4 +27,9 @@ public class CityRoute : ScriptableObject {
     {
         return  RouteTiles[index] + RouteSettings.CellCenterOffset.Value;
     }
+
+    public Color GetColor()
+    {
+        return RouteSettings.RouteColors[routeIndex];
+    }
 }

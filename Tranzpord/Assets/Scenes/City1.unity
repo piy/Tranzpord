@@ -376,58 +376,6 @@ Prefab:
       propertyPath: Cam
       value: 
       objectReference: {fileID: 277815543}
-    - target: {fileID: 1891845205412490, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1111033458730012, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1980640262119592, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1073799224484578, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1120128409517978, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1519479123420084, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1848883374393084, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1794533449223220, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1680059533470174, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1821178585014998, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1345257541103598, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1033629224043778, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1639994626668602, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ee5a7eb1a666114787068ee943b1bd8, type: 2}
   m_IsPrefabParent: 0

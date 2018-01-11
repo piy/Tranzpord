@@ -33,10 +33,6 @@ public class RoutesListWindow : UIWindow<RoutesListWindow>
         Close();
     }
 
-    public void OpenEditRouteUI()
-    {
-        UIManager.RouteEdit.Show();
-    }
 
     public void CreateRouteItems()
     {
@@ -52,11 +48,7 @@ public class RoutesListWindow : UIWindow<RoutesListWindow>
         item.transform.SetParent(ItemsHolder,false);
         item.gameObject.SetActive(true);
 
-        item.GetComponent<RouteItemView>().SetupView(
-            route.RouteSettings.RouteColors[route.routeIndex],
-            route.isUnlocked,
-            route.name,
-            route.RouteTiles.Count);
+        item.GetComponent<RouteItemView>().SetupView(route);
 
         Instance.routeItems.Add(route);
     }

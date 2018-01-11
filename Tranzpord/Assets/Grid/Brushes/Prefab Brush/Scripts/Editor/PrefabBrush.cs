@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace UnityEditor
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Grid And Tiles/Prefab Brush")]
     [CustomGridBrush(false, true, false, "Prefab Brush")]
     public class PrefabBrush : GridBrushBase
     {

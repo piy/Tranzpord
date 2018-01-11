@@ -5,8 +5,8 @@ using UnityEngine.Tilemaps;
 namespace UnityEngine
 {
 	[Serializable]
-	[CreateAssetMenu]
-	public class RuleTile : TileBase
+    [CreateAssetMenu(menuName = "Grid And Tiles/Rule Tile")]
+    public class RuleTile : TileBase
 	{
 		public Sprite m_DefaultSprite;
 		public Tile.ColliderType m_DefaultColliderType = Tile.ColliderType.Sprite;
