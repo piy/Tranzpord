@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3bd5c8d21f4274dbaaa67de7b90d19, type: 3}
+  m_Name: Routes Setup
+  m_EditorClassIdentifier: 
+  RouteColors:
+  - {r: 0.25605538, g: 0.714378, b: 0.9411765, a: 0.5019608}
+  - {r: 0.41230538, g: 0.9044118, b: 0.45642528, a: 0.5019608}
+  - {r: 0.9411765, g: 0.5850375, b: 0.3114187, a: 0.5019608}
+  - {r: 0.9558824, g: 0.40765572, b: 0.8273327, a: 0.5019608}
+  - {r: 1, g: 0.3455882, b: 0.3455882, a: 0.5019608}
+  CellCenterOffset: {fileID: 11400000, guid: 269e3d78a8762e443a6936d429e02d71, type: 2}

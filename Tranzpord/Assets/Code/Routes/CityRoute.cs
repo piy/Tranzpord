@@ -4,11 +4,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "CityEntities/Route")]
 public class CityRoute : ScriptableObject {
 
+    public RoutesSetup RouteSettings;
+
+    [Header("Route Data")]
     public bool isUnlocked = false;
-
+    public int routeIndex = 0;
     public string RouteName = "Default Route Name";
-
-    public Vector3Variable Offset;
     public List<Vector3Int> RouteTiles = new List<Vector3Int>();
 
     public void ClearRoute()
@@ -24,6 +25,6 @@ public class CityRoute : ScriptableObject {
     //Should make some external converter
     public Vector3 GetTilePosition(int index)
     {
-        return  RouteTiles[index] + Offset.Value;
+        return  RouteTiles[index] + RouteSettings.CellCenterOffset.Value;
     }
 }

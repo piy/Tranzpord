@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RoutesListWindow : UIWindow<RoutesListWindow>
@@ -15,17 +16,20 @@ public class RoutesListWindow : UIWindow<RoutesListWindow>
     public void Show()
     {
         Open();
-        //Check if items already created -> just show them
+        
         if (game.ActiveCity.Routes.Count != Instance.routeItems.Count)
         {
             routeItems.Clear();
             CreateRouteItems();
         }
-        
+
+        ShowRoutesOnMap();
     }
+
 
     public void Hide()
     {
+        HideRoutesOnMap();
         Close();
     }
 
@@ -48,8 +52,22 @@ public class RoutesListWindow : UIWindow<RoutesListWindow>
         item.transform.SetParent(ItemsHolder,false);
         item.gameObject.SetActive(true);
 
-        item.GetComponent<RouteItemView>().SetupView(route.isUnlocked, route.name, route.RouteTiles.Count);
+        item.GetComponent<RouteItemView>().SetupView(
+            route.RouteSettings.RouteColors[route.routeIndex],
+            route.isUnlocked,
+            route.name,
+            route.RouteTiles.Count);
 
         Instance.routeItems.Add(route);
+    }
+
+    private void ShowRoutesOnMap()
+    {
+        game.ActiveCity.CityClass.ShowRoutes();
+    }
+
+    private void HideRoutesOnMap()
+    {
+        game.ActiveCity.CityClass.HideRoutes();
     }
 }

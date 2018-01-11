@@ -510,8 +510,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
-        m_MethodName: CloseTopWindow
+      - m_Target: {fileID: 114757032044843324}
+        m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

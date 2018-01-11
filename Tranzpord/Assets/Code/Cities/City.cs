@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 
 public class City : MonoBehaviour {
@@ -8,8 +7,10 @@ public class City : MonoBehaviour {
 
     public Vector3Variable Click;
 
+    [Header("TileMaps")]
     public TileBase Roads;
     public Tilemap CityTileMap;
+    public Tilemap CityRoutes;
 
     Grid m_Grid;
 
@@ -17,6 +18,8 @@ public class City : MonoBehaviour {
     {
         //SHould make check if this exist or Make required component!
         m_Grid = GetComponent<Grid>();
+        game.ActiveCity.CityClass = this;
+        HideRoutes();
     }
 
     public void AddTileToActiveRoute()
@@ -38,5 +41,17 @@ public class City : MonoBehaviour {
     void ColorTile(Vector3Int TilePos)
     {
         CityTileMap.SetColor(TilePos, Color.red);
+    }
+
+    public void ShowRoutes()
+    {
+        Debug.Log("display route layer");
+        CityRoutes.GetComponent<TilemapRenderer>().enabled = true;
+    }
+
+    public void HideRoutes()
+    {
+        Debug.Log("Hide route layer");
+        CityRoutes.GetComponent<TilemapRenderer>().enabled = false;
     }
 }

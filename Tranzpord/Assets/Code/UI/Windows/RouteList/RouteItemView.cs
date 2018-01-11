@@ -7,7 +7,7 @@ public class RouteItemView : MonoBehaviour {
     public Text RouteLenght;
     public Button EditBtn;
 
-    public void SetupView(bool unlocked, string Name, int Lenght)
+    public void SetupView(Color color, bool unlocked, string Name, int Lenght)
     {
         if (unlocked)
         {
@@ -20,7 +20,7 @@ public class RouteItemView : MonoBehaviour {
             RouteLenght.text = null;
             EditBtn.gameObject.SetActive(false);
         }
-        
-        
+
+        RouteName.color += color;
     }
 }
