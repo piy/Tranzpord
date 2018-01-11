@@ -27,7 +27,6 @@ public class City : MonoBehaviour {
 
     public void ShowRoutes()
     {
-        Debug.Log("display route layer");
         CityRoutes.GetComponent<TilemapRenderer>().enabled = true;
     }
 
@@ -35,7 +34,6 @@ public class City : MonoBehaviour {
 
     public void HideRoutes()
     {
-        Debug.Log("Hide route layer");
         CityRoutes.GetComponent<TilemapRenderer>().enabled = false;
     }
 }

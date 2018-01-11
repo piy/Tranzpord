@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class RoutePainter : MonoBehaviour {
 
     public GameStateSO Game;
     public Vector3Variable Click;
-    public TileBase Routes;
+    public RuleTile Routes;
 
     TileBase Roads;
     Tilemap CityTileMap;
     Tilemap routesTileMap;
     Grid m_Grid;
+
+    Color color;
 
     public void Start()
     {
@@ -35,7 +35,6 @@ public class RoutePainter : MonoBehaviour {
 
         if (CityTileMap.GetTile(TilePos) == Roads)
         {
-            //ColorTile(newTile);
             Game.ActiveRoute.AddTile(TilePos);
             AddRouteVisual(TilePos);
         }
@@ -43,12 +42,18 @@ public class RoutePainter : MonoBehaviour {
 
 
 
-    public void AddRouteVisual(Vector3Int pos/*, Color color*/)
+    public void AddRouteVisual(Vector3Int pos)
     {
-        var color = Game.ActiveRoute.GetColor();
+        color = Game.ActiveRoute.GetColor();
+
+        var newTile = ScriptableObject.CreateInstance<Tile>();
+        newTile.color = color;
+        newTile.sprite = Routes.m_DefaultSprite;
+
+        //routesTileMap.SetTile(pos, newTile);
         routesTileMap.SetTile(pos, Routes);
         routesTileMap.SetColor(pos, color);
-        Debug.Log("Adding Route Tile. Pos: " + Click.Value + ". Color: " + color);
+        //routesTileMap.RefreshAllTiles();
     }
 
 }
