@@ -3,7 +3,7 @@
 public class BusSpawner : MonoBehaviour {
 
     public GameObject Bus;
-    public CityRoute ActiveRoute;
+    public CityRouteSO ActiveRoute;
 
     public void SpawnBus()
     {

@@ -5,7 +5,7 @@ public class RoutePainter : MonoBehaviour {
 
     public GameStateSO Game;
     public Vector3Variable Click;
-    public RuleTile Routes;
+    public RuleTile RouteTileSet;
 
     TileBase Roads;
     Tilemap CityTileMap;
@@ -24,7 +24,7 @@ public class RoutePainter : MonoBehaviour {
 
 
 
-    public void AddTileToActiveRoute()
+    public void EditRoute()
     {
         if (Game.ActiveGameMode.CurrentGameMode != GameMode.EditRoute)
         {
@@ -35,25 +35,54 @@ public class RoutePainter : MonoBehaviour {
 
         if (CityTileMap.GetTile(TilePos) == Roads)
         {
-            Game.ActiveRoute.AddTile(TilePos);
-            AddRouteVisual(TilePos);
+            if (Game.ActiveRoute.RouteTiles.Count == 0)
+            {
+                //Start Route anywhere
+                //to do: check if there is already more than 3 routes -> disallow and show message
+                AddTileToARoute(TilePos);
+            }
+            else
+            {
+                AddTileToARoute(TilePos);  //Just so it'll work as was
+
+                //check if this tile is connected to the ends of the Route.
+                //Check if Im not clicking on the already existing Tile -> then try to remove it (also check if it's not in a middle of the route).
+            }
+
+        }
+        else //Click not on a road
+        {
+            ShowInvalidTile(TilePos, "Not a Road");
         }
     }
 
-
+    private void AddTileToARoute(Vector3Int pos)
+    {
+        Game.ActiveRoute.AddTile(pos);
+        AddRouteVisual(pos);
+    }
 
     public void AddRouteVisual(Vector3Int pos)
     {
         color = Game.ActiveRoute.GetColor();
 
-        var newTile = ScriptableObject.CreateInstance<Tile>();
-        newTile.color = color;
-        newTile.sprite = Routes.m_DefaultSprite;
-
-        //routesTileMap.SetTile(pos, newTile);
-        routesTileMap.SetTile(pos, Routes);
+        routesTileMap.SetTile(pos, RouteTileSet);
         routesTileMap.SetColor(pos, color);
-        //routesTileMap.RefreshAllTiles();
     }
 
+    private bool IsTileValid(Vector3Int pos)
+    {
+        if (CityTileMap.GetTile(pos) == Roads)
+        {
+            return true;
+        }
+
+        return true;
+    }
+
+    private void ShowInvalidTile(Vector3Int pos, string explain)
+    {
+        //Show animation/effect
+        Debug.Log(explain + pos);
+    }
 }

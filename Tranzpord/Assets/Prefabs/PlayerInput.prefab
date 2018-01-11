@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02043d9cba6fbbe46a3ab329451cbd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: b2d06fd8f457b4d4f80633fde6ddba08, type: 2}
+  Event: {fileID: 11400000, guid: 8b30188f21afe94449e6a0a67cec87e3, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
@@ -382,8 +382,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7f183dd94ef944abab8001f3a3de6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mode: {fileID: 11400000, guid: 03ecaa1908026394499a953c5ac40e1a, type: 2}
   ClickCoordinates: {fileID: 11400000, guid: 8f23dee6939904541ac9200233fac347, type: 2}
-  ClickEvent: {fileID: 11400000, guid: b2d06fd8f457b4d4f80633fde6ddba08, type: 2}
+  PlayClickEvent: {fileID: 11400000, guid: b2d06fd8f457b4d4f80633fde6ddba08, type: 2}
+  EditClickEvent: {fileID: 11400000, guid: 8b30188f21afe94449e6a0a67cec87e3, type: 2}
 --- !u!114 &114435485543770900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -496,7 +498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Game: {fileID: 11400000, guid: 8b517e66f763a714385449f6cd8db974, type: 2}
   Click: {fileID: 11400000, guid: 8f23dee6939904541ac9200233fac347, type: 2}
-  Routes: {fileID: 11400000, guid: ae1f24e2d5eb2a84d93b2140fe2a82c8, type: 2}
+  RouteTileSet: {fileID: 11400000, guid: ae1f24e2d5eb2a84d93b2140fe2a82c8, type: 2}
 --- !u!114 &114855693343851922
 MonoBehaviour:
   m_ObjectHideFlags: 1

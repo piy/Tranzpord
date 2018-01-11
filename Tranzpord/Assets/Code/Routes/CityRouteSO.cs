@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "CityEntities/Route")]
-public class CityRoute : ScriptableObject {
+public class CityRouteSO : ScriptableObject {
 
     public RoutesSetup RouteSettings;
 
@@ -19,6 +19,7 @@ public class CityRoute : ScriptableObject {
 
     public void AddTile(Vector3Int tile)
     {
+        //I should check where to add, so that tiles are allign in a straight route!
         RouteTiles.Add(tile);
     }
 

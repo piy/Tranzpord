@@ -6,7 +6,7 @@ public class BusMovement : MonoBehaviour {
     public FloatReference MoveSpeed;
     public FloatReference TargetAccuracy;
 
-    CityRoute myRoute;
+    CityRouteSO myRoute;
 
     int nextTileIndex;
 
@@ -15,7 +15,7 @@ public class BusMovement : MonoBehaviour {
     /// Methods
     /// </summary>
     /// <param name="route"></param>
-    public void SetRoute(CityRoute route)
+    public void SetRoute(CityRouteSO route)
     {
         myRoute = route;
         nextTileIndex = 0;

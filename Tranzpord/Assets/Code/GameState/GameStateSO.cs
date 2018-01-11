@@ -5,7 +5,7 @@ public class GameStateSO : ScriptableObject
 {
     public GameModeSO ActiveGameMode;
     public CitySO ActiveCity;
-    public CityRoute ActiveRoute;
+    public CityRouteSO ActiveRoute;
 
     //Initialize
     private void OnEnable()

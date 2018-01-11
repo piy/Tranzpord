@@ -9,5 +9,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaf07d8fe1b6c7242a135ee2a7a0781e, type: 3}
-  m_Name: ClickEvent
+  m_Name: PlayModeClickEvent
   m_EditorClassIdentifier: 

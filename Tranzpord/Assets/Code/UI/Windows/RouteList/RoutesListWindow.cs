@@ -11,7 +11,7 @@ public class RoutesListWindow : UIWindow<RoutesListWindow>
 
     Transform ItemsHolder { get { return Instance.gameObject.transform.GetChild(0).transform.Find("ItemsHolder");} }
 
-    List<CityRoute> routeItems = new List<CityRoute>();
+    List<CityRouteSO> routeItems = new List<CityRouteSO>();
 
     public void Show()
     {
@@ -42,7 +42,7 @@ public class RoutesListWindow : UIWindow<RoutesListWindow>
         }
     }
 
-    private void CreateRouteItem(CityRoute route)
+    private void CreateRouteItem(CityRouteSO route)
     {
         GameObject item = Instantiate(RouteItem);
         item.transform.SetParent(ItemsHolder,false);

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class RouteItemView : MonoBehaviour {
 
-    private CityRoute myRoute;
+    private CityRouteSO myRoute;
     public GameStateSO Game;
     public SO_UIManager UIManager;
 
@@ -11,7 +11,7 @@ public class RouteItemView : MonoBehaviour {
     public Text RouteLenght;
     public Button EditBtn;
 
-    public void SetupView(CityRoute route)
+    public void SetupView(CityRouteSO route)
     {
         myRoute = route;
         EditBtn.onClick.AddListener(HandleEditBtnClick);
