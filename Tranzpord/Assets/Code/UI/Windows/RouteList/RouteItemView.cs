@@ -14,6 +14,7 @@ public class RouteItemView : MonoBehaviour {
     public void SetupView(CityRoute route)
     {
         myRoute = route;
+        EditBtn.onClick.AddListener(HandleEditBtnClick);
 
         if (myRoute.isUnlocked)
         {
@@ -30,9 +31,14 @@ public class RouteItemView : MonoBehaviour {
         RouteName.color += myRoute.GetColor();
     }
 
-    public void OpenEditRouteUI()
+    public void HandleEditBtnClick()
     {
         Game.ActiveRoute = myRoute;
+        OpenEditRouteUI();
+    }
+
+    public void OpenEditRouteUI()
+    {
         UIManager.RouteEdit.Show();
     }
 }

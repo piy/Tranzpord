@@ -6,7 +6,6 @@
     {
         Open();
         game.SetGameModeTo(GameMode.EditRoute);
-        game.ActiveRoute = game.ActiveCity.Routes[0];         //HACK! Should be set by UI
     }
 
     public void Hide()
