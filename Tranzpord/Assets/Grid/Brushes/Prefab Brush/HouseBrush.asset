@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81918ab9c67af8d4e861b09f962c13b4, type: 3}
   m_Name: HouseBrush
   m_EditorClassIdentifier: 
-  m_Prefab: {fileID: 1522560222592484, guid: f789b83c5b5a6be419f0a61b9853589d, type: 2}
+  m_Prefab: {fileID: 1522560222592484, guid: 3f78260fe370ff049a3c2858fac524c9, type: 2}
   m_Z: 0

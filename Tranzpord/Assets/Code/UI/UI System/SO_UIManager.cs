@@ -13,6 +13,7 @@ public class SO_UIManager : ScriptableObject {
     public RouteEditWindow RouteEdit;
     public HQWindow HQ;
     public BusShopWindow BusShop;
+    public HouseWindow House;
 
     Stack<UIWindow> uiStack = new Stack<UIWindow>();    
 

@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
+  CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
     ConstantValue: 0

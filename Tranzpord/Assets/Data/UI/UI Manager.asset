@@ -22,3 +22,4 @@ MonoBehaviour:
     type: 2}
   HQ: {fileID: 114844143032526582, guid: d4462cabd3aa46448b681af95e0484a9, type: 2}
   BusShop: {fileID: 114296248320031074, guid: e6c558042338dde4c956bbabbe3e4a6e, type: 2}
+  House: {fileID: 114974980920845942, guid: cb8156c1947154b4b8f9013fa4266293, type: 2}

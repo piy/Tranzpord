@@ -1,11 +1,6 @@
-﻿using UnityEngine;
-using UnityEngine.EventSystems;
-
-public class LivingHouse : MonoBehaviour, IPointerClickHandler
+﻿public class LivingHouse : CityObject
 {
-
     public HouseRuntimeCollection CityHouses;
-    public SO_UIManager UIManager;
 
     public int Residents { get; set; }
     public IntReference DefaultResidents;
@@ -30,17 +25,8 @@ public class LivingHouse : MonoBehaviour, IPointerClickHandler
 
     //Upgrade
 
-
-    #region IPointerClickHandler interface
-    public void OnPointerClick(PointerEventData eventData)
+    public override void OnSelected()
     {
-        UIManager.HQ.Show();
+        UIManager.House.Show(this);
     }
-    #endregion
-
-    //testO
-//    public void OnMouseDown()
-//    {
-//        UIManager.HQ.Show();
-//    }
 }

@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class HQWindow : UIWindow<HQWindow>
+﻿public class HQWindow : UIWindow<HQWindow>
 {
     public void Show()
     {
