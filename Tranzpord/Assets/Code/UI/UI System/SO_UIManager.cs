@@ -11,6 +11,8 @@ public class SO_UIManager : ScriptableObject {
     public GlobalMapWindow GlobalMap;
     public RoutesListWindow RoutesListWindow;
     public RouteEditWindow RouteEdit;
+    public HQWindow HQ;
+    public BusShopWindow BusShop;
 
     Stack<UIWindow> uiStack = new Stack<UIWindow>();    
 
@@ -41,7 +43,6 @@ public class SO_UIManager : ScriptableObject {
         }
 
         uiStack.Push(win);
-
     }
 
     private T GetPrefab<T>() where T : UIWindow
@@ -73,7 +74,7 @@ public class SO_UIManager : ScriptableObject {
     public void CreateWindow<T>() where T : UIWindow
     {
         var prefab = GetPrefab<T>();
-        Instantiate(prefab);
+        Instantiate(prefab).gameObject.SetActive(true);
     }
 
     private void DisableCanvas(UIWindow win)

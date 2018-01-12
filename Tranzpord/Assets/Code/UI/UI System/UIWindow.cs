@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+
 
 public abstract class UIWindow<T> : UIWindow where T : UIWindow<T>
 {
@@ -7,7 +9,6 @@ public abstract class UIWindow<T> : UIWindow where T : UIWindow<T>
 
     protected virtual void Awake()
     {
-        //Debug.Log(name + " .My instance is set to be: " + Instance);
         Instance = (T)this;
     }
 
@@ -18,8 +19,6 @@ public abstract class UIWindow<T> : UIWindow where T : UIWindow<T>
 
     protected void Open()
     {
-        //Debug.Log("Open: " + name + ". And my instance is: " + Instance);
-
         if (Instance == null)
             UIManager.CreateWindow<T>();
         else
@@ -48,7 +47,9 @@ public abstract class UIWindow<T> : UIWindow where T : UIWindow<T>
 
 
 
-public abstract class UIWindow : MonoBehaviour {
+public abstract class UIWindow : MonoBehaviour
+{
+
 
     [Tooltip("Destroy GameObject, or just disable Canvas")]
     public bool DestroyWhenClosed = false;
