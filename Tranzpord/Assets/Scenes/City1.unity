@@ -524,6 +524,246 @@ Prefab:
       propertyPath: Painter
       value: 
       objectReference: {fileID: 1950804569}
+    - target: {fileID: 114521905627449930, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114745154007325758, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114226663893978924, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114729216546588378, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114141035468263370, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114935011931486392, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114283938037591136, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114176809390996216, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114543608279852092, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114449595886629796, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114726799171387654, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114518369271580350, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114884380405424810, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114824858963887084, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114889669086991924, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114780328341171092, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114311821490870632, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114671874719432172, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114940440984461434, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114658803833118310, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114326957794202800, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114169538310433984, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114775486407637106, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114301932853284138, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114176575970828036, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114105856793388718, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114912998959028382, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114684037479960584, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114775677477663742, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114700037405667266, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114421154911206980, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114461686137569342, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114572931173893962, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114084955823307828, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114293804043817056, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114900623201686826, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114862347225006400, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114241539426555722, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114867358949313900, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
+    - target: {fileID: 114925923003373298, guid: ff598f5d66b86eb4fa34d1b7e583c2a7,
+        type: 2}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff598f5d66b86eb4fa34d1b7e583c2a7, type: 2}
   m_IsPrefabParent: 0

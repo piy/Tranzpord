@@ -2,7 +2,7 @@ Fingers, by Jeff Johnson
 Fingers (c) 2015 Digital Ruby, LLC
 http://www.digitalruby.com
 
-Version 2.1.2
+Version 2.1.3
 
 See ChangeLog.txt for history.
 
@@ -69,7 +69,7 @@ Custom Shapes:
 --------------------
 Custom shapes are possible with ShapeGestureRecognizer. This uses a fuzzy image recognition algorithm, and will require you to train it to match variants of your shape. Shapes are defined as a grid of pixels up to 64 pixels in size. Performance is excellent as rows are compared by a simple ulong bitmask comparison.
 
-FingersImageAutomationScene is a great way to rapidly create the code for your shapes. Run the scene. As you draw each gesture, the code gets put into the text box. Click the X in the bottom right to remove the last line if you made a mistake. Up to about 50 lines can go in the text box before Unity starts throwing errors, so copy the code out every so often and clear out the text box.
+Fingers/Prefab/Scenes/FingersImageAutomationScene is a great way to rapidly create the code for your shapes. Run the scene. As you draw each gesture, the code gets put into the text box. Click the X in the bottom right to remove the last line if you made a mistake. Up to about 50 lines can go in the text box before Unity starts throwing errors, so copy the code out every so often and clear out the text box.
 
 To learn more about creating custom shape gestures and how to test them and refine them, please watch the tutorial video at https://youtu.be/7dvP_zhlWvU
 
@@ -105,6 +105,9 @@ Troubleshooting / FAQ:
 --------------------
 Q: My gestures aren't working.
 A: Did you add a physics and/or physics2d ray caster to your camera? What about pass through objects, have you set those up properly?
+
+Q: Simultaneous gestures are not working.
+A: Ensure you call the allow simultaneous method on one of the gestures. Also consider trying ClearTrackedTouchesOnEndOrFail = true.
 
 Q: Help / I'm lost!?!?
 A: I'm available to answer your questions or feedback at support@digitalruby.com

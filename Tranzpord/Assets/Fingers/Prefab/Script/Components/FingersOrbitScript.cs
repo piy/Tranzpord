@@ -44,6 +44,9 @@ namespace DigitalRubyShared
         [Range(0.0f, 360.0f)]
         public float OrbitXMaxDegrees = 0.0f;
 
+        [Tooltip("Whether the orbit on the x axis is a pan (move sideways) instead of an orbit.")]
+        public bool OrbitXPan;
+
         [Tooltip("The speed (degrees per second) at which to orbit using y delta pan gesture values. Negative or positive values will cause orbit in the opposite direction.")]
         [Range(-100.0f, 100.0f)]
         public float OrbitYSpeed = -30.0f;
@@ -52,13 +55,26 @@ namespace DigitalRubyShared
         [Range(0.0f, 360.0f)]
         public float OrbitYMaxDegrees = 0.0f;
 
+        [Tooltip("Whether the orbit on the y axis is a pan (move sideways) instead of an orbit.")]
+        public bool OrbitYPan;
+
         [Tooltip("Whether to allow orbit while zooming.")]
         public bool AllowOrbitWhileZooming = true;
         private bool allowOrbitWhileZooming;
 
+        [Tooltip("Whether to allow orbit and/or pan on both axis at the same time or to only pick the axis with the greatest movement.")]
+        public bool AllowMovementOnBothAxisSimultaneously = true;
+        private int lockedAxis = 0; // 0 = none, 1 = x, 2 = y
+
         [Tooltip("How much the velocity of the orbit will cause additional orbit after the gesture stops. 1 for no inertia (orbits forever) or 0 for immediate stop.")]
         [Range(0.0f, 1.0f)]
         public float OrbitInertia = 0.925f;
+
+        [Tooltip("The min position for the orbit or pan. Set equal to OrbitMaximumPosition for no limit.")]
+        public Vector3 OrbitMinimumPosition;
+
+        [Tooltip("The max position for the orbit or pan. Set equal to OrbitMinimumPosition for no limit.")]
+        public Vector3 OrbitMaximumPosition;
 
         [Tooltip("Whether the pan and rotate orbit gestures must start on the orbit target to orbit. The tap gesture always requires that it be on the orbit target.")]
         public bool RequireOrbitGesturesToStartOnTarget;
@@ -124,41 +140,63 @@ namespace DigitalRubyShared
         private void UpdateOrbit(float xVelocity, float yVelocity)
         {
             // orbit the target in either direction depending on pan gesture delta x and y
-            if (OrbitXSpeed != 0.0f)
+            if (OrbitXSpeed != 0.0f && yVelocity != 0.0f)
             {
-                float addAngle = yVelocity * OrbitXSpeed * Time.deltaTime;
-                if (OrbitXMaxDegrees > 0.0f)
+                if (OrbitYPan)
                 {
-                    float newDegrees = xDegrees + addAngle;
-                    if (newDegrees > OrbitXMaxDegrees)
-                    {
-                        addAngle = OrbitXMaxDegrees - xDegrees;
-                    }
-                    else if (newDegrees < -OrbitXMaxDegrees)
-                    {
-                        addAngle = -OrbitXMaxDegrees - xDegrees;
-                    }
+                    Orbiter.Translate(0.0f, yVelocity * Time.deltaTime, 0.0f, Space.Self);
                 }
-                xDegrees += addAngle;
-                Orbiter.RotateAround(OrbitTarget.transform.position, Orbiter.transform.right, addAngle);
+                else
+                {
+                    float addAngle = yVelocity * OrbitXSpeed * Time.deltaTime;
+                    if (OrbitXMaxDegrees > 0.0f)
+                    {
+                        float newDegrees = xDegrees + addAngle;
+                        if (newDegrees > OrbitXMaxDegrees)
+                        {
+                            addAngle = OrbitXMaxDegrees - xDegrees;
+                        }
+                        else if (newDegrees < -OrbitXMaxDegrees)
+                        {
+                            addAngle = -OrbitXMaxDegrees - xDegrees;
+                        }
+                    }
+                    xDegrees += addAngle;
+                    Orbiter.RotateAround(OrbitTarget.transform.position, Orbiter.transform.right, addAngle);
+                }
             }
-            if (OrbitYSpeed != 0.0f)
+            if (OrbitYSpeed != 0.0f && xVelocity != 0.0f)
             {
-                float addAngle = xVelocity * OrbitYSpeed * Time.deltaTime;
-                if (OrbitYMaxDegrees > 0.0f)
+                if (OrbitXPan)
                 {
-                    float newDegrees = yDegrees + addAngle;
-                    if (newDegrees > OrbitYMaxDegrees)
-                    {
-                        addAngle = OrbitYMaxDegrees - yDegrees;
-                    }
-                    else if (newDegrees < -OrbitYMaxDegrees)
-                    {
-                        addAngle = -OrbitYMaxDegrees - yDegrees;
-                    }
+                    Orbiter.Translate(xVelocity * Time.deltaTime, 0.0f, 0.0f, Space.Self);
                 }
-                yDegrees += addAngle;
-                Orbiter.RotateAround(OrbitTarget.transform.position, Vector3.up, addAngle);
+                else
+                {
+                    float addAngle = xVelocity * OrbitYSpeed * Time.deltaTime;
+                    if (OrbitYMaxDegrees > 0.0f)
+                    {
+                        float newDegrees = yDegrees + addAngle;
+                        if (newDegrees > OrbitYMaxDegrees)
+                        {
+                            addAngle = OrbitYMaxDegrees - yDegrees;
+                        }
+                        else if (newDegrees < -OrbitYMaxDegrees)
+                        {
+                            addAngle = -OrbitYMaxDegrees - yDegrees;
+                        }
+                    }
+                    yDegrees += addAngle;
+                    Orbiter.RotateAround(OrbitTarget.transform.position, Vector3.up, addAngle);
+                }
+            }
+            if (OrbitMinimumPosition != OrbitMaximumPosition)
+            {
+                Vector3 pos = Orbiter.transform.position;
+                pos.x = Mathf.Clamp(pos.x, OrbitMinimumPosition.x, OrbitMaximumPosition.x);
+                pos.y = Mathf.Clamp(pos.y, OrbitMinimumPosition.y, OrbitMaximumPosition.y);
+                pos.z = Mathf.Clamp(pos.z, OrbitMinimumPosition.z, OrbitMaximumPosition.z);
+                Orbiter.transform.position = pos;
             }
         }
 
@@ -181,6 +219,7 @@ namespace DigitalRubyShared
             {
                 if (gesture.State == GestureRecognizerState.Ended)
                 {
+                    lockedAxis = 0;
                     if (OrbitInertia > 0.0f)
                     {
                         panVelocity = new Vector2(gesture.VelocityX * 0.01f, gesture.VelocityY * 0.01f);
@@ -200,8 +239,15 @@ namespace DigitalRubyShared
                 }
                 return;
             }
-
-            UpdateOrbit(gesture.DeltaX, gesture.DeltaY);
+            else
+            {
+                float xVelocity = gesture.DeltaX;
+                float yVelocity = gesture.DeltaY;
+                if (PanGestureHasEnoughMovementOnOneAxis(ref xVelocity, ref yVelocity))
+                {
+                    UpdateOrbit(xVelocity, yVelocity);
+                }
+            }
         }
 
         private void ScaleGesture_Updated(GestureRecognizer gesture)
@@ -223,6 +269,34 @@ namespace DigitalRubyShared
 
             // position orbiter away from the target at the new distance
             Orbiter.transform.position = Orbiter.transform.forward * (-currentDistanceFromTarget);
+        }
+
+        private bool PanGestureHasEnoughMovementOnOneAxis(ref float xVelocity, ref float yVelocity)
+        {
+            if (AllowMovementOnBothAxisSimultaneously)
+            {
+                return true;
+            }
+
+            float unitsX = Mathf.Abs(panGesture.DistanceX / DeviceInfo.UnitMultiplier);
+            float unitsY = Mathf.Abs(panGesture.DistanceY / DeviceInfo.UnitMultiplier);
+            if (lockedAxis == 0 && unitsX <= panGesture.ThresholdUnits && unitsY <= panGesture.ThresholdUnits)
+            {
+                return false;
+            }
+            else if (lockedAxis == 1 || (lockedAxis == 0 && unitsX > unitsY * 3.0f))
+            {
+                lockedAxis = 1;
+                yVelocity = 0.0f;
+                return true;
+            }
+            else if (lockedAxis == 2 || (lockedAxis == 0 && unitsY > unitsX * 3.0f))
+            {
+                lockedAxis = 2;
+                xVelocity = 0.0f;
+                return true;
+            }
+            return false;
         }
     }
 }

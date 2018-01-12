@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: 43ec6c43d2fffb34c99909a11d78e724
-timeCreated: 1513892795
+timeCreated: 1515793484
 licenseType: Pro
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - Bus: {fileID: 1417263704369112, guid: 36acb46458ab3e94c9fe29aac8e32c39, type: 2}
+  - CityBusses: {fileID: 11400000, guid: e51dd28bb9db7ce40a18b776a9acff94, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

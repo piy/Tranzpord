@@ -1,5 +1,9 @@
 ﻿Changelog
 --------------------
+2.1.3	(2017-01-10)
+		- Add OrbitXPan and OrbitYPan booleans to orbit script to allow the camera to slide instead of orbit.
+		- Add AllowMovementOnBothAxisSimultaneously parameter to orbit script.
+
 2.1.2	(2017-12-15)
 		- Add new EndMode property to swipe gesture, giving three different possible types of end swipe behavior. See SwipeGestureRecognizerSwipeMode for more details.
 

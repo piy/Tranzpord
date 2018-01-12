@@ -3,11 +3,15 @@
 public class BusSpawner : MonoBehaviour {
 
     public GameObject Bus;
-    public CityRouteSO ActiveRoute;
+    public OwnedBuses CityBusses;
+    //public CityRouteSO ActiveRoute;
 
     public void SpawnBus()
     {
-        var newBas = Instantiate(Bus);
-        newBas.GetComponent<BusMovement>().SetRoute(ActiveRoute);
+        var newBus = Instantiate(Bus);
+        var route = gameObject.GetComponent<RouteEditWindow>().game.ActiveRoute;
+
+        newBus.GetComponent<BusMovement>().SetRoute(route);
+        CityBusses.AddBus(newBus);
     }
 }
