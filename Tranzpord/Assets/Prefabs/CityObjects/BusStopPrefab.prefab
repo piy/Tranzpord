@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 61534763244298830}
   - component: {fileID: 114071675148406914}
   m_Layer: 0
-  m_Name: StationPrefab
+  m_Name: BusStopPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class CityBusStation : MonoBehaviour {
+public class CityBusStop : MonoBehaviour {
+
+    public BusStopData myData;
 
     public HouseRuntimeCollection CityHouses;
 
@@ -14,6 +16,13 @@ public class CityBusStation : MonoBehaviour {
 
     //Params: Coverage range, max clients, 
     //List of all the parts installed
+
+
+    public void CreateBusStation(Vector3Int place)
+    {
+        myData = new BusStopData();
+        gameObject.transform.position = place;  //need to place BusStop in the corrent place in the grid
+    }
 
     private void Start()
     {

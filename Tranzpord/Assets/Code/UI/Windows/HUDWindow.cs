@@ -15,4 +15,9 @@
     {
         UIManager.RoutesListWindow.Show();
     }
+
+    public void OpenBusStopsEditUI()
+    {
+        UIManager.BusStopsEdit.Show();
+    }
 }

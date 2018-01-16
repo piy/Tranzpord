@@ -11,6 +11,7 @@ public class SO_UIManager : ScriptableObject {
     public GlobalMapWindow GlobalMap;
     public RoutesListWindow RoutesListWindow;
     public RouteEditWindow RouteEdit;
+    public BusStopsEditWindow BusStopsEdit;
     public HQWindow HQ;
     public BusShopWindow BusShop;
     public HouseWindow House;

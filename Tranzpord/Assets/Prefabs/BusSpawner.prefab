@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4406186253534576}
   - component: {fileID: 114290817204463678}
+  - component: {fileID: 114710974171705670}
   m_Layer: 0
   m_Name: BusSpawner
   m_TagString: Untagged
@@ -53,3 +54,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bus: {fileID: 1417263704369112, guid: 36acb46458ab3e94c9fe29aac8e32c39, type: 2}
   CityBusses: {fileID: 11400000, guid: e51dd28bb9db7ce40a18b776a9acff94, type: 2}
+--- !u!114 &114710974171705670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1413770497451054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb98179f51410c446b4ffb8bc0b0ac4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BusStop: {fileID: 1398454829846460, guid: 7a7077abe2752b243a9115b8102d75d3, type: 2}

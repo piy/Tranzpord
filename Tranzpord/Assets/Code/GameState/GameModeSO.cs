@@ -9,6 +9,7 @@ public class GameModeSO : ScriptableObject
 public enum GameMode
 {
     PlayMode,
-    EditRoute
+    EditRoute,
+    EditBusStops
 }
 

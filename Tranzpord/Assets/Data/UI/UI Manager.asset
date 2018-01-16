@@ -20,6 +20,8 @@ MonoBehaviour:
     type: 2}
   RouteEdit: {fileID: 114220680394659942, guid: a2b3dc7c1c9e95a4fbb724cc40ce02c4,
     type: 2}
+  BusStopsEdit: {fileID: 114642333501293236, guid: 52b32fd3ee427ce468eb68f6327b2c17,
+    type: 2}
   HQ: {fileID: 114844143032526582, guid: d4462cabd3aa46448b681af95e0484a9, type: 2}
   BusShop: {fileID: 114296248320031074, guid: e6c558042338dde4c956bbabbe3e4a6e, type: 2}
   House: {fileID: 114974980920845942, guid: cb8156c1947154b4b8f9013fa4266293, type: 2}
