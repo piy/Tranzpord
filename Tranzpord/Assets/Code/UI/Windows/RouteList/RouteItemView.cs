@@ -11,10 +11,21 @@ public class RouteItemView : MonoBehaviour {
     public Text RouteLenght;
     public Button EditBtn;
 
+
+    private void OnEnable()
+    {
+        EditBtn.onClick.AddListener(HandleEditBtnClick);
+    }
+
+    private void OnDisable()
+    {
+        EditBtn.onClick.RemoveAllListeners();
+    }
+
+
     public void SetupView(CityRouteSO route)
     {
         myRoute = route;
-        EditBtn.onClick.AddListener(HandleEditBtnClick);
 
         if (myRoute.isUnlocked)
         {

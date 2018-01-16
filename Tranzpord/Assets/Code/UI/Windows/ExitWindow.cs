@@ -4,7 +4,7 @@ public class ExitWindow : SimpleWindow<ExitWindow> {
 
     public override void OnBackBtnPressed()
     {
-        ExitGame();
+        Hide();
     }
 
     public void ExitGame()

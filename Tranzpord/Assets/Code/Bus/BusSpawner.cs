@@ -4,14 +4,37 @@ public class BusSpawner : MonoBehaviour {
 
     public GameObject Bus;
     public OwnedBuses CityBusses;
-    //public CityRouteSO ActiveRoute;
 
-    public void SpawnBus()
+    private void Start()
     {
-        var newBus = Instantiate(Bus);
-        var route = gameObject.GetComponent<RouteEditWindow>().game.ActiveRoute;
+        Debug.Log("I have: " + CityBusses.MyBusses.Count + " Busses");
+        SpawnAllBusses();
+    }
 
-        newBus.GetComponent<BusMovement>().SetRoute(route);
-        CityBusses.AddBus(newBus);
+    public GameObject CreateBus(CityRouteSO route)
+    {
+        var newBusInstance = Instantiate(Bus);
+        var newBus = newBusInstance.GetComponent<CityBus>();
+
+        newBus.CreateBus();
+        newBus.SetNewRoute(route);
+
+        return newBusInstance;
+    }
+
+    public void SpawnBus(CityRouteSO route)
+    {
+        var newBusInstance = CreateBus(route);
+        var newBus = newBusInstance.GetComponent<CityBus>();
+
+        CityBusses.AddBus(newBus.myData);
+    }
+
+    public void SpawnAllBusses()
+    {
+        foreach (var bus in CityBusses.MyBusses)
+        {
+            CreateBus(bus.Route);
+        }
     }
 }

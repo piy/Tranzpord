@@ -34,6 +34,12 @@ public class RoutesListWindow : UIWindow<RoutesListWindow>
     }
 
 
+    public override void OnBackBtnPressed()
+    {
+        Hide();
+    }
+
+
     public void CreateRouteItems()
     {
         foreach (var route in game.ActiveCity.Routes)

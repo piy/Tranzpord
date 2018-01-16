@@ -76,7 +76,6 @@ GameObject:
   - component: {fileID: 114479095399042674}
   - component: {fileID: 114808903604974210}
   - component: {fileID: 114220680394659942}
-  - component: {fileID: 114469166871674604}
   m_Layer: 5
   m_Name: RouteEditUI
   m_TagString: Untagged
@@ -135,19 +134,9 @@ MonoBehaviour:
   DisableWindowsUnder: 1
   UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   game: {fileID: 11400000, guid: 8b517e66f763a714385449f6cd8db974, type: 2}
---- !u!114 &114469166871674604
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1537257698946294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43ec6c43d2fffb34c99909a11d78e724, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bus: {fileID: 1417263704369112, guid: 36acb46458ab3e94c9fe29aac8e32c39, type: 2}
-  CityBusses: {fileID: 11400000, guid: e51dd28bb9db7ce40a18b776a9acff94, type: 2}
+  BusSpawner: {fileID: 114290817204463678, guid: 3cd5c1e5e85e7df449e8dd76cc08cc2c,
+    type: 2}
+  AddBusBtn: {fileID: 114685307081762738}
 --- !u!114 &114479095399042674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,18 +256,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114964598176106212}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114469166871674604}
-        m_MethodName: SpawnBus
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114728381614568950

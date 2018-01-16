@@ -4,19 +4,18 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Collections/Buses")]
 public class OwnedBuses : ScriptableObject
 {
-    public List<GameObject> MyBusses = new List<GameObject>();
+    public List<BusData> MyBusses = new List<BusData>();
 
-    public void AddBus(GameObject bus)
+    public void AddBus(BusData bus)
     {
         MyBusses.Add(bus);
     }
 
-    public void RemoveBus(GameObject bus)
+    public void RemoveBus(BusData bus)
     {
         if (MyBusses.Contains(bus))
         {
             MyBusses.Remove(bus);
-            Destroy(bus);
         }
         else
             Debug.LogError(bus + " not found in collection of MyBusses");
