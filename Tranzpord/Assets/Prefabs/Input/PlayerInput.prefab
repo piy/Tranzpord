@@ -188,12 +188,16 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224287332977726548}
-  - component: {fileID: 114413001294099184}
   - component: {fileID: 114922130503205716}
   - component: {fileID: 114435485543770900}
+  - component: {fileID: 114413001294099184}
   - component: {fileID: 114443026710549974}
-  - component: {fileID: 114179653972645212}
+  - component: {fileID: 114493474690064354}
   - component: {fileID: 114804210208151182}
+  - component: {fileID: 114998300917882556}
+  - component: {fileID: 114179653972645212}
+  - component: {fileID: 114713135420842042}
+  - component: {fileID: 114208737041625830}
   m_Layer: 8
   m_Name: PlayerInput
   m_TagString: Untagged
@@ -300,12 +304,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02043d9cba6fbbe46a3ab329451cbd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 8b30188f21afe94449e6a0a67cec87e3, type: 2}
+  Event: {fileID: 11400000, guid: e566fbaeb57d81243999c691a0dece86, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114804210208151182}
-        m_MethodName: AddTileToActiveRoute
+      - m_Target: {fileID: 114493474690064354}
+        m_MethodName: RaiseProperClickEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114208737041625830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848883374393084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02043d9cba6fbbe46a3ab329451cbd6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: ace6add34ec0b1a4bb03f75019d026e2, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114998300917882556}
+        m_MethodName: BuildBusStop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -384,8 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: {fileID: 11400000, guid: 03ecaa1908026394499a953c5ac40e1a, type: 2}
   ClickCoordinates: {fileID: 11400000, guid: 8f23dee6939904541ac9200233fac347, type: 2}
-  PlayClickEvent: {fileID: 11400000, guid: b2d06fd8f457b4d4f80633fde6ddba08, type: 2}
-  EditClickEvent: {fileID: 11400000, guid: 8b30188f21afe94449e6a0a67cec87e3, type: 2}
+  ClickEvent: {fileID: 11400000, guid: e566fbaeb57d81243999c691a0dece86, type: 2}
 --- !u!114 &114435485543770900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -415,6 +446,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnBackBtnPressed: {fileID: 11400000, guid: 9ddf6904b99547844937aa544562aca9, type: 2}
+--- !u!114 &114493474690064354
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848883374393084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ade87f33be3f4941aa546a3b97e33b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: {fileID: 11400000, guid: 03ecaa1908026394499a953c5ac40e1a, type: 2}
+  PlayClickEvent: {fileID: 11400000, guid: b2d06fd8f457b4d4f80633fde6ddba08, type: 2}
+  EditRouteClickEvent: {fileID: 11400000, guid: 8b30188f21afe94449e6a0a67cec87e3,
+    type: 2}
+  EditBusStopClickEvent: {fileID: 11400000, guid: ace6add34ec0b1a4bb03f75019d026e2,
+    type: 2}
 --- !u!114 &114707973839250468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -431,6 +479,34 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114713135420842042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848883374393084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02043d9cba6fbbe46a3ab329451cbd6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8b30188f21afe94449e6a0a67cec87e3, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114804210208151182}
+        m_MethodName: EditRoute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114755448434947074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -656,6 +732,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114998300917882556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848883374393084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb98179f51410c446b4ffb8bc0b0ac4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Game: {fileID: 11400000, guid: 8b517e66f763a714385449f6cd8db974, type: 2}
+  BusStop: {fileID: 1398454829846460, guid: 7a7077abe2752b243a9115b8102d75d3, type: 2}
+  CityBusStopps: {fileID: 11400000, guid: 46cca814326bd2440b388e66d7112118, type: 2}
+  ClickCoordinate: {fileID: 11400000, guid: 8f23dee6939904541ac9200233fac347, type: 2}
 --- !u!222 &222228117886522742
 CanvasRenderer:
   m_ObjectHideFlags: 1

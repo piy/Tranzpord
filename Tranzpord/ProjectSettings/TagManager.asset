@@ -44,6 +44,9 @@ TagManager:
   - name: CityBg
     uniqueID: 752579883
     locked: 0
+  - name: BusStop
+    uniqueID: 4104558347
+    locked: 0
   - name: Bus
     uniqueID: 3842754411
     locked: 0

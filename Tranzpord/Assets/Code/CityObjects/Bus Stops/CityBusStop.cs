@@ -5,6 +5,8 @@ public class CityBusStop : MonoBehaviour {
 
     public BusStopData myData;
 
+    public Vector3Variable CellCenterOffset; //bad place =(
+
     public HouseRuntimeCollection CityHouses;
 
     public float Range { get; set; }
@@ -21,7 +23,7 @@ public class CityBusStop : MonoBehaviour {
     public void CreateBusStation(Vector3Int place)
     {
         myData = new BusStopData();
-        gameObject.transform.position = place;  //need to place BusStop in the corrent place in the grid
+        gameObject.transform.position = place + CellCenterOffset.Value;  //need to place BusStop in the correct place in the grid
     }
 
     private void Start()

@@ -1,10 +1,15 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class BusStopsEditWindow : UIWindow<BusStopsEditWindow>
 {
     public GameStateSO game;
     public BusStopBuilder BSBuilder;
+
+    [Header ("Window Components")]
     public Button PlaceBusStopBtn;
+    public Button ExitBtn;
+    public GameObject BuildBusStopPanel;
 
     private void OnEnable()
     {
@@ -20,19 +25,35 @@ public class BusStopsEditWindow : UIWindow<BusStopsEditWindow>
     {
         PlaceBusStopBtn.onClick.AddListener(HandlePlaceBusStopBtnClick);
         Open();
+        BuildBusStopPanel.SetActive(false);
+        ExitBtn.gameObject.SetActive(true);
+
         game.SetGameModeTo(GameMode.EditBusStops);
+        //Show Bus stops info in the world
     }
 
     public void Hide()
     {
         game.SetGameModeTo(GameMode.PlayMode);
-        //game.ActiveRoute = null;
+        //Hide Bus stops info in the world
         Close();
+    }
+
+    public void ShowBuildBusStopPanel()
+    {
+        BuildBusStopPanel.SetActive(true);
+        ExitBtn.gameObject.SetActive(false);
+    }
+
+    public void HideBuildBusStopPanel()
+    {
+        BuildBusStopPanel.SetActive(false);
+        ExitBtn.gameObject.SetActive(true);
     }
 
     public void HandlePlaceBusStopBtnClick()
     {
-        BSBuilder.BuildBusStop();           //temporary
+       BSBuilder.BuildBusStop();
     }
 
 }
