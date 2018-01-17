@@ -11,4 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3692b8d221a8245af36c29d70b9dc2, type: 3}
   m_Name: Owned Bus Stopps
   m_EditorClassIdentifier: 
-  MyBusStopps: []
+  MyBusStopps:
+  - Placement: {x: 0, y: 0, z: 0}

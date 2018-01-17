@@ -671,6 +671,14 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c,
         type: 2}
+    - target: {fileID: 1781893177948990, guid: ff598f5d66b86eb4fa34d1b7e583c2a7, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514108674791296, guid: ff598f5d66b86eb4fa34d1b7e583c2a7, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff598f5d66b86eb4fa34d1b7e583c2a7, type: 2}
   m_IsPrefabParent: 0
@@ -685,7 +693,7 @@ GameObject:
   - component: {fileID: 1866824414}
   - component: {fileID: 1866824415}
   - component: {fileID: 1866824412}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CameraBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
