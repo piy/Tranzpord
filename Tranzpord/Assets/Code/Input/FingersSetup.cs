@@ -3,11 +3,14 @@ using DigitalRubyShared;
 using System.Collections;
 using UnityEngine;
 
-public class FingerSetup : MonoBehaviour {
+public class FingersSetup : MonoBehaviour {
 
     public Camera MainCamera;
     public GameObject Cam;
     public Vector3 DefaultFocusPoint;
+
+    [Header("Tap info")]
+    public TapInfoSO TapInfo;
 
     [Header("Camera Zoom options")]
     public float DefaultZoom;
@@ -63,10 +66,13 @@ public class FingerSetup : MonoBehaviour {
             return;
         }
 
+        UpdateTapInfo(tapGesture);
+
         Ray ray = MainCamera.ScreenPointToRay(new Vector3(tapGesture.FocusX, tapGesture.FocusY, 0.0f));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
+
             // adjust camera x, y to look at the tapped / clicked sphere
             cameraAnimationTargetPosition = new Vector3(hit.transform.position.x, hit.transform.position.y, Cam.transform.position.z);
             StopAllCoroutines();
@@ -131,5 +137,12 @@ public class FingerSetup : MonoBehaviour {
             // set the camera position at the new distance
             Cam.transform.position = target - (forward * newDistance);
         }
+    }
+
+    private void UpdateTapInfo(TapGestureRecognizer tap)
+    {
+        Vector3 tapCoord = new Vector3(tap.FocusX, tap.FocusY, 0);              //should I cache it?
+
+        TapInfo.TapPoint = tapCoord;
     }
 }

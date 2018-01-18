@@ -2,7 +2,6 @@
 
 public class RouteEditWindow : UIWindow<RouteEditWindow>
 {
-    public GameStateSO game;
     public BusSpawner BusSpawner;
     public Button AddBusBtn;
 
@@ -20,18 +19,18 @@ public class RouteEditWindow : UIWindow<RouteEditWindow>
     {
         AddBusBtn.onClick.AddListener(HandleAddBusBtnClick);
         Open();
-        game.SetGameModeTo(GameMode.EditRoute);
+        GameState.Instance.GameData.SetGameModeTo(GameMode.EditRoute);
     }
 
     public void Hide()
     {
-        game.SetGameModeTo(GameMode.PlayMode);
-        game.ActiveRoute = null;
+        GameState.Instance.GameData.SetGameModeTo(GameMode.PlayMode);
+        GameState.Instance.GameData.ActiveRoute = null;
         Close();
     }
 
     public void HandleAddBusBtnClick()
     {
-        BusSpawner.SpawnBus(game.ActiveRoute);
+        BusSpawner.SpawnBus(GameState.Instance.GameData.ActiveRoute);
     }
 }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class RoutesListWindow : UIWindow<RoutesListWindow>
 {
-    public GameStateSO game;
-
     [Header("Route Creation Setup")]
     public GameObject RouteItem;
 
@@ -17,7 +15,7 @@ public class RoutesListWindow : UIWindow<RoutesListWindow>
     {
         Open();
         
-        if (game.ActiveCity.Routes.Count != Instance.routeItems.Count)
+        if (GameState.Instance.GameData.ActiveCity.Routes.Count != Instance.routeItems.Count)
         {
             routeItems.Clear();
             CreateRouteItems();
@@ -42,7 +40,7 @@ public class RoutesListWindow : UIWindow<RoutesListWindow>
 
     public void CreateRouteItems()
     {
-        foreach (var route in game.ActiveCity.Routes)
+        foreach (var route in GameState.Instance.GameData.ActiveCity.Routes)
         {
             CreateRouteItem(route);
         }
@@ -61,11 +59,11 @@ public class RoutesListWindow : UIWindow<RoutesListWindow>
 
     private void ShowRoutesOnMap()
     {
-        game.ActiveCity.CityClass.ShowRoutes();
+        GameState.Instance.GameData.ActiveCity.CityClass.ShowRoutes();
     }
 
     private void HideRoutesOnMap()
     {
-        game.ActiveCity.CityClass.HideRoutes();
+        GameState.Instance.GameData.ActiveCity.CityClass.HideRoutes();
     }
 }

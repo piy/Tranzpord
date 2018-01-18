@@ -4,10 +4,6 @@ using UnityEngine.Tilemaps;
 
 public class City : MonoBehaviour
 {
-
-    public GameStateSO Game;
-
-    public Vector3Variable Click;
     public RoutePainter Painter;
 
     [Header("TileMaps")]
@@ -21,7 +17,7 @@ public class City : MonoBehaviour
     {
         //SHould make check if this exist or Make required component!
         m_Grid = GetComponent<Grid>();
-        Game.ActiveCity.CityClass = this;
+        GameState.Instance.GameData.ActiveCity.CityClass = this;
         LoadCity();
         HideRoutes();
     }
@@ -51,7 +47,7 @@ public class City : MonoBehaviour
 
     private void DrawRoutes()
     {
-        foreach (var route in Game.ActiveCity.Routes)
+        foreach (var route in GameState.Instance.GameData.ActiveCity.Routes)
         {
             if (route.isUnlocked && route.RouteTiles.Count != 0)
             {

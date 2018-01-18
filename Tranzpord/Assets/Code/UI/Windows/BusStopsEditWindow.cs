@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class BusStopsEditWindow : UIWindow<BusStopsEditWindow>
 {
-    public GameStateSO game;
     public BusStopBuilder BSBuilder;
 
     [Header ("Window Components")]
@@ -28,13 +27,13 @@ public class BusStopsEditWindow : UIWindow<BusStopsEditWindow>
         BuildBusStopPanel.SetActive(false);
         ExitBtn.gameObject.SetActive(true);
 
-        game.SetGameModeTo(GameMode.EditBusStops);
+        GameState.Instance.GameData.SetGameModeTo(GameMode.EditBusStops);
         //Show Bus stops info in the world
     }
 
     public void Hide()
     {
-        game.SetGameModeTo(GameMode.PlayMode);
+        GameState.Instance.GameData.SetGameModeTo(GameMode.PlayMode);
         //Hide Bus stops info in the world
         Close();
     }

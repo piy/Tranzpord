@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class RouteItemView : MonoBehaviour {
 
     private CityRouteSO myRoute;
-    public GameStateSO Game;
     public SO_UIManager UIManager;
 
     public Text RouteName;
@@ -44,7 +43,7 @@ public class RouteItemView : MonoBehaviour {
 
     public void HandleEditBtnClick()
     {
-        Game.ActiveRoute = myRoute;
+        GameState.Instance.GameData.ActiveRoute = myRoute;
         OpenEditRouteUI();
     }
 

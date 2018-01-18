@@ -3788,7 +3788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -3805,7 +3805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -3822,7 +3822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -3839,7 +3839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -3856,7 +3856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -3873,7 +3873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -3890,7 +3890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -3907,7 +3907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -3924,7 +3924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -3941,7 +3941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -3958,7 +3958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -3975,7 +3975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -3992,7 +3992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4021,7 +4021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4038,7 +4038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4055,7 +4055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4072,7 +4072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4089,7 +4089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4106,7 +4106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4140,7 +4140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4157,7 +4157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4174,7 +4174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4191,7 +4191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4208,7 +4208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4225,7 +4225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4242,7 +4242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4259,7 +4259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4276,7 +4276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4293,7 +4293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4310,7 +4310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4327,7 +4327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4344,7 +4344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4361,7 +4361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4378,7 +4378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4395,7 +4395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4412,7 +4412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4429,7 +4429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4446,7 +4446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4463,8 +4463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc9c0e2da000ba41898fbb2ddf41ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Game: {fileID: 11400000, guid: 8b517e66f763a714385449f6cd8db974, type: 2}
-  Click: {fileID: 11400000, guid: 8f23dee6939904541ac9200233fac347, type: 2}
   Painter: {fileID: 0}
   Roads: {fileID: 11400000, guid: c8f236979f12cc24f9aca39edd032081, type: 2}
   CityTileMap: {fileID: 8195094281155855314}
@@ -4481,7 +4479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0
@@ -4498,7 +4496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9138c3ee8e7a5d849913f3bb5ba927f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManager: {fileID: 0}
+  UIManager: {fileID: 11400000, guid: 7f088fa26a3db6841a4b78979892930c, type: 2}
   CityHouses: {fileID: 11400000, guid: 83fc8cad54e8bd647896ed5f14230492, type: 2}
   DefaultResidents:
     UseConstant: 0

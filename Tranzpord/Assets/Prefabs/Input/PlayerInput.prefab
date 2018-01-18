@@ -337,7 +337,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114998300917882556}
-        m_MethodName: BuildBusStop
+        m_MethodName: ShowBuildBusStopPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -431,6 +431,7 @@ MonoBehaviour:
   MainCamera: {fileID: 0}
   Cam: {fileID: 0}
   DefaultFocusPoint: {x: 0, y: 0, z: -10}
+  TapInfo: {fileID: 11400000, guid: 192c565699a0b9248bd5d7f6398a9be4, type: 2}
   DefaultZoom: 6
   MaxZoom: 12
   MinZoom: 4.5
@@ -572,7 +573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0945bd3a7ef31df459113a04f253b3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Game: {fileID: 11400000, guid: 8b517e66f763a714385449f6cd8db974, type: 2}
   Click: {fileID: 11400000, guid: 8f23dee6939904541ac9200233fac347, type: 2}
   RouteTileSet: {fileID: 11400000, guid: ae1f24e2d5eb2a84d93b2140fe2a82c8, type: 2}
 --- !u!114 &114855693343851922
@@ -747,6 +747,7 @@ MonoBehaviour:
   BusStop: {fileID: 1398454829846460, guid: 7a7077abe2752b243a9115b8102d75d3, type: 2}
   CityBusStopps: {fileID: 11400000, guid: 46cca814326bd2440b388e66d7112118, type: 2}
   ClickCoordinate: {fileID: 11400000, guid: 8f23dee6939904541ac9200233fac347, type: 2}
+  placeToBuild: {x: 0, y: 0, z: 0}
 --- !u!222 &222228117886522742
 CanvasRenderer:
   m_ObjectHideFlags: 1

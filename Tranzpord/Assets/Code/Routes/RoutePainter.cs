@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class RoutePainter : MonoBehaviour {
-
-    public GameStateSO Game;
+public class RoutePainter : MonoBehaviour
+{
     public Vector3Variable Click;
     public RuleTile RouteTileSet;
 
@@ -16,17 +15,17 @@ public class RoutePainter : MonoBehaviour {
 
     public void Start()
     {
-        Roads = Game.ActiveCity.CityClass.Roads;
-        CityTileMap = Game.ActiveCity.CityClass.CityTileMap;
-        routesTileMap = Game.ActiveCity.CityClass.CityRoutes;
-        m_Grid = Game.ActiveCity.CityClass.m_Grid;
+        Roads = GameState.Instance.GameData.ActiveCity.CityClass.Roads;
+        CityTileMap = GameState.Instance.GameData.ActiveCity.CityClass.CityTileMap;
+        routesTileMap = GameState.Instance.GameData.ActiveCity.CityClass.CityRoutes;
+        m_Grid = GameState.Instance.GameData.ActiveCity.CityClass.m_Grid;
     }
 
 
 
     public void EditRoute()
     {
-        if (Game.ActiveGameMode.CurrentGameMode != GameMode.EditRoute)
+        if (GameState.Instance.GameData.ActiveGameMode.CurrentGameMode != GameMode.EditRoute)
         {
             return;
         }
@@ -35,7 +34,7 @@ public class RoutePainter : MonoBehaviour {
 
         if (CityTileMap.GetTile(TilePos) == Roads)
         {
-            if (Game.ActiveRoute.RouteTiles.Count == 0)
+            if (GameState.Instance.GameData.ActiveRoute.RouteTiles.Count == 0)
             {
                 //Start Route anywhere
                 //to do: check if there is already more than 3 routes -> disallow and show message
@@ -58,13 +57,13 @@ public class RoutePainter : MonoBehaviour {
 
     private void AddTileToARoute(Vector3Int pos)
     {
-        Game.ActiveRoute.AddTile(pos);
+        GameState.Instance.GameData.ActiveRoute.AddTile(pos);
         AddRouteVisual(pos);
     }
 
     public void AddRouteVisual(Vector3Int pos)
     {
-        color = Game.ActiveRoute.GetColor();
+        color = GameState.Instance.GameData.ActiveRoute.GetColor();
 
         routesTileMap.SetTile(pos, RouteTileSet);
         routesTileMap.SetColor(pos, color);
