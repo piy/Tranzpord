@@ -68,15 +68,23 @@ public class FingersSetup : MonoBehaviour {
 
         UpdateTapInfo(tapGesture);
 
-        Ray ray = MainCamera.ScreenPointToRay(new Vector3(tapGesture.FocusX, tapGesture.FocusY, 0.0f));
+        Ray ray = MainCamera.ScreenPointToRay(TapInfo.TapPoint);
         RaycastHit hit;
+        //RaycastHit2D hit;
+
         if (Physics.Raycast(ray, out hit))
         {
+            TapInfo.TappedOnUI = false;
+            TapInfo.TappedObj = hit.transform.gameObject;
 
             // adjust camera x, y to look at the tapped / clicked sphere
             cameraAnimationTargetPosition = new Vector3(hit.transform.position.x, hit.transform.position.y, Cam.transform.position.z);
             StopAllCoroutines();
             StartCoroutine(AnimationCoRoutine());
+        }
+        else
+        {
+            //TapInfo.TappedOnUI = true;
         }
     }
 
