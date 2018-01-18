@@ -24,17 +24,21 @@ namespace DigitalRubyShared
         [Tooltip("The object to orbit around OrbitTarget.")]
         public Transform Orbiter;
 
-        [Tooltip("The minimium distance to zoom towards to the orbit target.")]
+        [Tooltip("The minimium distance to move to the orbit target, 0 for no minimum.")]
         [Range(0.1f, 100.0f)]
-        public float MinZoomDistance = 5.0f;
+        public float MinimumDistance = 5.0f;
 
-        [Tooltip("The maximum distance to zoom away from the orbit target.")]
+        [Tooltip("The maximum distance to move away from the orbit target, 0 for no maximum.")]
         [Range(0.1f, 1000.0f)]
-        public float MaxZoomDistance = 1000.0f;
+        public float MaximumDistance = 1000.0f;
 
         [Tooltip("The zoom speed")]
-        [Range(0.01f, 3.0f)]
-        public float ZoomSpeed = 3.0f;
+        [Range(0.01f, 100.0f)]
+        public float ZoomSpeed = 20.0f;
+
+        [Tooltip("The speed at which the orbiter looks at the orbit target is it has panned away from looking direclty at the orbit target.")]
+        [Range(0.0f, 10.0f)]
+        public float ZoomLookAtSpeed = 1.0f;
 
         [Tooltip("The speed (degrees per second) at which to orbit using x delta pan gesture values. Negative or positive values will cause orbit in the opposite direction.")]
         [Range(-100.0f, 100.0f)]
@@ -70,11 +74,8 @@ namespace DigitalRubyShared
         [Range(0.0f, 1.0f)]
         public float OrbitInertia = 0.925f;
 
-        [Tooltip("The min position for the orbit or pan. Set equal to OrbitMaximumPosition for no limit.")]
-        public Vector3 OrbitMinimumPosition;
-
-        [Tooltip("The max position for the orbit or pan. Set equal to OrbitMinimumPosition for no limit.")]
-        public Vector3 OrbitMaximumPosition;
+        [Tooltip("The max size for the orbit or pan. An x,y or z value larget than this away from orbit target will be clamped in. Set to 0 for no limit.")]
+        public Vector3 OrbitMaximumSize;
 
         [Tooltip("Whether the pan and rotate orbit gestures must start on the orbit target to orbit. The tap gesture always requires that it be on the orbit target.")]
         public bool RequireOrbitGesturesToStartOnTarget;
@@ -85,6 +86,7 @@ namespace DigitalRubyShared
         private float xDegrees;
         private float yDegrees;
         private Vector2 panVelocity;
+        private float zoomVelocity;
 
         public event System.Action OrbitTargetTapped;
 
@@ -118,7 +120,7 @@ namespace DigitalRubyShared
             Orbiter.transform.LookAt(OrbitTarget.transform);
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (allowOrbitWhileZooming != AllowOrbitWhileZooming)
             {
@@ -133,8 +135,73 @@ namespace DigitalRubyShared
                 }
             }
             scaleGesture.ZoomSpeed = ZoomSpeed;
+            Vector3 startPos = Orbiter.transform.position;
             UpdateOrbit(panVelocity.x, panVelocity.y);
+            UpdateZoom();
+            ClampDistance(startPos);
             panVelocity = panVelocity * OrbitInertia;
+            zoomVelocity = zoomVelocity * OrbitInertia;
+        }
+
+        private float IntersectRaySphere(Vector3 rayOrigin, Vector3 rayDir, Vector3 sphereCenter, float sphereRadius)
+        {
+            sphereCenter = rayOrigin - sphereCenter;
+            float rayLength = float.MaxValue;
+            float b = Vector3.Dot(rayDir, sphereCenter);
+            float c = Vector3.Dot(sphereCenter, sphereCenter) - (sphereRadius * sphereRadius);
+            float discr = (b * b) - c;
+            float t = Mathf.Sqrt(discr * (discr > 0.0f ? 1.0f : 0.0f));
+            b = -b;
+            float distanceToSphere = Mathf.Clamp(b - t, 0.0f, rayLength);
+            float intersectAmount = Mathf.Clamp(b + t, 0.0f, rayLength);
+            intersectAmount = intersectAmount - distanceToSphere;
+            return (intersectAmount > 0.0f ? Mathf.Max(distanceToSphere, Mathf.Epsilon) : 0.0f);
+        }
+
+        private void ClampDistance(Vector3 startPos)
+        {
+            Vector3 orbitPos = Orbiter.transform.position;
+            if ((startPos != orbitPos) && (MinimumDistance > 0.0f || MaximumDistance > 0.0f))
+            {
+                Vector3 targetPos = OrbitTarget.transform.position;
+                Vector3 dirFromTarget = (orbitPos - targetPos).normalized;
+                float d;
+
+                // check if moved through min distance sphere, if so put back to start
+                if (MinimumDistance > 0.0f && (d = IntersectRaySphere(startPos, (orbitPos - startPos).normalized, targetPos, MinimumDistance)) > 0.0f &&
+                    d < Vector3.Distance(startPos, orbitPos))
+                {
+                    Orbiter.transform.position = orbitPos = targetPos + ((startPos - targetPos).normalized * MinimumDistance);
+                    panVelocity = Vector3.zero;
+                    zoomVelocity = 0.0f;
+                }
+                else
+                {
+                    float distance = Vector3.Distance(targetPos, orbitPos);
+                    float newDistance = Mathf.Clamp(distance, MinimumDistance, MaximumDistance);
+                    if (newDistance != distance)
+                    {
+                        Orbiter.transform.position = targetPos + (dirFromTarget * distance);
+                        panVelocity = Vector3.zero;
+                        zoomVelocity = 0.0f;
+                    }
+                }
+            }
+        }
+
+        private void UpdateZoom()
+        {
+            if (zoomVelocity >= -0.01f && zoomVelocity <= 0.01f)
+            {
+                zoomVelocity = 0.0f;
+                return;
+            }
+
+            Vector3 lookAtDir = (OrbitTarget.transform.position - Orbiter.transform.position).normalized;
+            Quaternion lookAtRotation = Quaternion.LookRotation(lookAtDir, Orbiter.transform.up);
+            Quaternion currentRotation = Orbiter.transform.rotation;
+            Orbiter.transform.rotation = Quaternion.Lerp(currentRotation, lookAtRotation, ZoomLookAtSpeed * Time.deltaTime);
+            Orbiter.transform.position += (Orbiter.transform.forward * zoomVelocity * Time.deltaTime);
         }
 
         private void UpdateOrbit(float xVelocity, float yVelocity)
@@ -189,14 +256,6 @@ namespace DigitalRubyShared
                     yDegrees += addAngle;
                     Orbiter.RotateAround(OrbitTarget.transform.position, Vector3.up, addAngle);
                 }
-            }
-            if (OrbitMinimumPosition != OrbitMaximumPosition)
-            {
-                Vector3 pos = Orbiter.transform.position;
-                pos.x = Mathf.Clamp(pos.x, OrbitMinimumPosition.x, OrbitMaximumPosition.x);
-                pos.y = Mathf.Clamp(pos.y, OrbitMinimumPosition.y, OrbitMaximumPosition.y);
-                pos.z = Mathf.Clamp(pos.z, OrbitMinimumPosition.z, OrbitMaximumPosition.z);
-                Orbiter.transform.position = pos;
             }
         }
 
@@ -258,17 +317,14 @@ namespace DigitalRubyShared
                 return;
             }
 
-            // get the current distance from the target
-            float currentDistanceFromTarget = Vector3.Distance(Orbiter.transform.position, OrbitTarget.transform.position);
-
-            // invert the scale so that smaller scales actually zoom out and larger scales zoom in
-            float scale = 1.0f + (1.0f - scaleGesture.ScaleMultiplier);
-
-            // multiply by scale, clamping to min and max
-            currentDistanceFromTarget = Mathf.Clamp(currentDistanceFromTarget * scale, MinZoomDistance, MaxZoomDistance);
-
-            // position orbiter away from the target at the new distance
-            Orbiter.transform.position = Orbiter.transform.forward * (-currentDistanceFromTarget);
+            if (scaleGesture.ScaleMultiplier > 1.0f)
+            {
+                zoomVelocity += (scaleGesture.ScaleMultiplier * ZoomSpeed);
+            }
+            else if (scaleGesture.ScaleMultiplier < 1.0f)
+            {
+                zoomVelocity += -(1.0f + (1.0f - scaleGesture.ScaleMultiplier) * 1.5f * ZoomSpeed);
+            }
         }
 
         private bool PanGestureHasEnoughMovementOnOneAxis(ref float xVelocity, ref float yVelocity)
